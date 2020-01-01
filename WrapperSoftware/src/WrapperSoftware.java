@@ -14,7 +14,7 @@ public class WrapperSoftware {
 		
 		
 		
-		scanner.close(); //ez a sor mindig utolsó legyen
+		scanner.close(); //fontos hogy ez a sor mindig legyen utolsó 
 	}
 
 }
