@@ -1,4 +1,0 @@
-# WrapperSoftware
-Vlagyimir
-István
-Gergő
