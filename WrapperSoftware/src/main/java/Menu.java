@@ -15,7 +15,13 @@ public class Menu {
 	}
 
 	private String[] merseArrays(String[] arrayFirst, String[] arraySecond) {
-		String[] mersedArray = new String[arrayFirst.length + arraySecond.length];
+		String[] mersedArray;
+		if (arraySecond == null || (arraySecond.length == 1 && arraySecond[0].equals(""))) {
+			mersedArray = arrayFirst;
+			return mersedArray;
+		} else {
+			mersedArray = new String[arrayFirst.length + arraySecond.length];
+		}
 		for (int i = 0; i < arrayFirst.length; i++) {
 			mersedArray[i] = arrayFirst[i];
 		}

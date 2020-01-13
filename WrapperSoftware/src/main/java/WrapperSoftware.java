@@ -38,7 +38,7 @@ public class WrapperSoftware {
 		menu.setMenuTypeAndFields(MenuType.PRODUCTS_LIST_TO_ADD, productsAll);
 		System.out.println(menu);
 
-		String[] productsInOrder = { "Tea" }; // ez csak egy teszt tömb
+		String[] productsInOrder = {"Tea"}; // ez csak egy teszt tömb
 		menu.setMenuTypeAndFields(MenuType.PRODUCTS_LIST_TO_REMOVE, productsInOrder);
 		System.out.println(menu);
 
