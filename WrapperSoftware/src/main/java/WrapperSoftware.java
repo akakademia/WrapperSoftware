@@ -13,39 +13,43 @@ public class WrapperSoftware {
 		Scanner scanner = new Scanner(System.in);
 
 		// ez a belépési rész
-		Menu menu = new Menu();
+		Menu menu = new Menu(MenuType.ENTER);
 		System.out.println(menu);
 
 		// ez az adatmódosítási rész
-		menu.setMenuTypeAndFields(MenuType.ADMIN);
+		menu = new Menu(MenuType.ADMIN);
 		System.out.println(menu);
 
-		menu.setMenuTypeAndFields(MenuType.CATEGORIS_FOR_DATE_CHANGE);
+		menu = new Menu(MenuType.CATEGORIS_FOR_DATE_CHANGE);
 		System.out.println(menu);
 
 		String[] productsAll = { "Tea", "Méz", "Dzsem" }; // ez csak egy teszt tömb
-		menu.setMenuTypeAndFields(MenuType.PRODUCTS_LIST_FOR_DATE_CHANGE, productsAll);
+		menu = new Menu(MenuType.PRODUCTS_LIST_FOR_DATE_CHANGE);
+		menu.setAdditonalFields(productsAll);
 		System.out.println(menu);
 
 		String[] fieldsToChange = { "Ár", "Méret", "Név" }; // ez csak egy teszt tömb
-		menu.setMenuTypeAndFields(MenuType.FIELDS_FOR_DATE_CHANGE, fieldsToChange);
+		menu = new Menu(MenuType.FIELDS_FOR_DATE_CHANGE);
+		menu.setAdditonalFields(fieldsToChange);
 		System.out.println(menu);
 
 		// ez a megrendelési rész
-		menu.setMenuTypeAndFields(MenuType.ORDER);
+		menu = new Menu(MenuType.ORDER);
 		System.out.println(menu);
 
-		menu.setMenuTypeAndFields(MenuType.PRODUCTS_LIST_TO_ADD, productsAll);
+		menu = new Menu(MenuType.PRODUCTS_LIST_TO_ADD);
+		menu.setAdditonalFields(productsAll);
 		System.out.println(menu);
 
-		String[] productsInOrder = {"Tea"}; // ez csak egy teszt tömb
-		menu.setMenuTypeAndFields(MenuType.PRODUCTS_LIST_TO_REMOVE, productsInOrder);
+		String[] productsInOrder = { "Tea" }; // ez csak egy teszt tömb
+		menu = new Menu(MenuType.PRODUCTS_LIST_TO_REMOVE);
+		menu.setAdditonalFields(productsInOrder);
 		System.out.println(menu);
 
 		// ez a számólási rész
 
 		// ez a fájlmentés/újraszámlalás vagy kilépés rész
-		menu.setMenuTypeAndFields(MenuType.SAVE_FILE_RESTART_LOG_OUT);
+		menu = new Menu(MenuType.SAVE_FILE_RESTART_LOG_OUT);
 		System.out.println(menu);
 
 		scanner.close(); // fontos hogy ez a sor mindig utolsó legyen
