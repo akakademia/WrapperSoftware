@@ -27,4 +27,5 @@ class TestMenuType {
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_TO_ADD"), "PRODUCTS_LIST_TO_ADD van benne?");
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_TO_REMOVE"), "PRODUCTS_LIST_TO_REMOVE van benne?");
 	}
+	
 }
