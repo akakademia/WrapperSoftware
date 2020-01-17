@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class TestMenuType {
+	MenuType m;
 
 	@Test
 	@DisplayName("MenuType enum tartalmának ellenőrzése")
@@ -28,4 +29,60 @@ class TestMenuType {
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_TO_REMOVE"), "PRODUCTS_LIST_TO_REMOVE van benne?");
 	}
 	
+	
+	@Test
+	@DisplayName("getBasicFieldsWithENTER")
+	void testGetBasicFieldsWithENTER() {
+		m = MenuType.ENTER;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithCATEGORIS_FOR_DATE_CHANGE")
+	void testGetBasicFieldsWithCATEGORIS_FOR_DATE_CHANGE() {
+		m = MenuType.CATEGORIS_FOR_DATE_CHANGE;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithPRODUCTS_LIST_FOR_DATE_CHANGE")
+	void testGetBasicFieldsWithPRODUCTS_LIST_FOR_DATE_CHANGE() {
+		m = MenuType.PRODUCTS_LIST_FOR_DATE_CHANGE;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithFIELDS_FOR_DATE_CHANGE")
+	void testGetBasicFieldsWithFIELDS_FOR_DATE_CHANGE() {
+		m = MenuType.FIELDS_FOR_DATE_CHANGE;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithORDER")
+	void testGetBasicFieldsWithORDER() {
+		m = MenuType.ORDER;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithPRODUCTS_LIST_TO_ADD")
+	void testGetBasicFieldsWithPRODUCTS_LIST_TO_ADD() {
+		m = MenuType.PRODUCTS_LIST_TO_ADD;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+	
+	@Test
+	@DisplayName("getBasicFieldsWithPRODUCTS_LIST_TO_REMOVE")
+	void testGetBasicFieldsWithPRODUCTS_LIST_TO_REMOVE() {
+		m = MenuType.PRODUCTS_LIST_TO_REMOVE;
+		assertTrue(m.getBasicFields(m) != null);
+	}
+		
+	@Test
+	@DisplayName("getBasicFieldsWithDefault")
+	void testGetBasicFieldsWithSAVE_FILE_RESTART_LOG_OUT() {
+		m = MenuType.SAVE_FILE_RESTART_LOG_OUT;
+		assertTrue(m.getBasicFields(m) != null);
+	}
 }
