@@ -24,16 +24,24 @@ class TestMenu {
 	@Test
 	@DisplayName("getFields() return fields? ")
 	void testGetFields() {
-		assertTrue(m.fields[0] == "teszt", "fields[0] == teszt");
-		
+		assertTrue(m.getFields().length==1, "fields mező mérete 1?");
 	}
 	
 	@Test
-	@DisplayName("setAdditonalFields()")
-	void testSetAdditonalFields() {
+	@DisplayName("setAdditonalFields() with a new value")
+	void testSetAdditonalFieldsWithNewValue() {
 		m.setAdditonalFields(new String[] {"test2"});
 		assertEquals(2, m.fields.length, "fields tömb mérete 2?");
 	}
+	
+	@Test
+	@DisplayName("setAdditonalFields() with null")
+	void testSetAdditonalFieldsWithNull() {
+		m.setAdditonalFields(null);
+		assertEquals(1, m.fields.length, "fields tömb mérete 1?");
+	}
+	
+	
 	
 	@Test
 	@DisplayName("toString tesztelése")
