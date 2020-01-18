@@ -21,7 +21,7 @@ class TestMenuType {
 
 		assertTrue(stringMenuType.contains("ENTER"), "ENTER van benne?");
 		assertTrue(stringMenuType.contains("ADMIN"), "ADMIN van benne?");
-		assertTrue(stringMenuType.contains("CATEGORIS_FOR_DATE_CHANGE"), "CATEGORIS_FOR_DATE_CHANGE van benne?");
+		assertTrue(stringMenuType.contains("CATEGORIES_FOR_DATE_CHANGE"), "CATEGORIES_FOR_DATE_CHANGE van benne?");
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_FOR_DATE_CHANGE"), "PRODUCTS_LIST_FOR_DATE_CHANGE van benne?");
 		assertTrue(stringMenuType.contains("FIELDS_FOR_DATE_CHANGE"), "FIELDS_FOR_DATE_CHANGE van benne?");
 		assertTrue(stringMenuType.contains("ORDER"), "ORDER van benne?");
@@ -38,9 +38,9 @@ class TestMenuType {
 	}
 	
 	@Test
-	@DisplayName("getBasicFieldsWithCATEGORIS_FOR_DATE_CHANGE")
-	void testGetBasicFieldsWithCATEGORIS_FOR_DATE_CHANGE() {
-		m = MenuType.CATEGORIS_FOR_DATE_CHANGE;
+	@DisplayName("getBasicFieldsWithCATEGORIES_FOR_DATE_CHANGE")
+	void testGetBasicFieldsWithCATEGORIES_FOR_DATE_CHANGE() {
+		m = MenuType.CATEGORIES_FOR_DATE_CHANGE;
 		assertTrue(m.getBasicFields(m) != null);
 	}
 	
