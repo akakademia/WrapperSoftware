@@ -2,11 +2,13 @@
 public class Menu {
 
 	MenuType menuType;
-	String[] fields;
+	private String[] fields;
+	private int numberOfBasicFields;
 
 	public Menu(MenuType menuType) {
 		this.menuType = menuType;
 		fields = menuType.getBasicFields(menuType);
+		numberOfBasicFields = fields.length;
 	}
 
 	public MenuType getMenuType() {
@@ -15,6 +17,10 @@ public class Menu {
 
 	public String[] getFields() {
 		return fields;
+	}
+
+	public int getNumberOfBasicFields() {
+		return numberOfBasicFields;
 	}
 
 	public void setAdditonalFields(String[] fieldsToAdd) {
