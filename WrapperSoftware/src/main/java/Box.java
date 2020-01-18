@@ -1,9 +1,9 @@
 
 public class Box {
 
-	int width;
-	int length;
-	int heigth;
+	private int width;
+	private int length;
+	private int heigth;
 
 	public Box() {
 	}

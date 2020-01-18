@@ -1,8 +1,8 @@
 
 public class Pattern {
 
-	int width;
-	int length;
+	private int width;
+	private int length;
 
 	public Pattern() {
 	}

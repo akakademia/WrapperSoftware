@@ -1,10 +1,10 @@
 
 public class Cardboard {
 
-	int width;
-	int length;
-	int thickness;
-	int price;
+	private int width;
+	private int length;
+	private int thickness;
+	private int price;
 
 	public Cardboard() {
 	}
