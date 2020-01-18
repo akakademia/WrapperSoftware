@@ -8,7 +8,7 @@ public class GetNumber {
 		this.scan = scan;
 	}
 
-	public double getNumberFromUser() {
+	private double getNumberFromUser() {
 		double number = scan.nextDouble();
 		scan.nextLine();
 		return number;
@@ -16,7 +16,7 @@ public class GetNumber {
 
 	public double getValidInteger(double lowestValue, double highestValue) {
 		DecimalFormat format = new DecimalFormat("###.#");
-		double integer = 0;
+		double integer = lowestValue - 1;
 		do {
 			try {
 
@@ -27,6 +27,7 @@ public class GetNumber {
 				}
 			} catch (Exception e) {
 				System.out.println("Csak számot adhat meg.");
+				scan.nextLine();
 			}
 		} while (isIntegerNotValid(integer, lowestValue, highestValue));
 		return integer;
@@ -34,7 +35,7 @@ public class GetNumber {
 
 	public double getValidDouble(double lowestValue, double highestValue) {
 		DecimalFormat format = new DecimalFormat("###.#");
-		double number = 0;
+		double number = lowestValue - 1;
 		do {
 			try {
 
@@ -45,6 +46,7 @@ public class GetNumber {
 				}
 			} catch (Exception e) {
 				System.out.println("Csak számot adhat meg.");
+				scan.nextLine();
 			}
 		} while (isDoubleNotValid(number, lowestValue, highestValue));
 		return number;
