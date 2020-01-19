@@ -3,61 +3,79 @@ import java.util.Scanner;
 
 public class GetNumber {
 	private Scanner scan;
+	private int integerNumber;
+	private double doubleNumber;
 
 	public GetNumber(Scanner scan) {
 		this.scan = scan;
 	}
 
-	private double getNumberFromUser() {
-		double number = scan.nextDouble();
+	private double getDoubleFromUser() {
+		doubleNumber = scan.nextDouble();
 		scan.nextLine();
-		return number;
+		return doubleNumber;
 	}
 
-	public double getValidInteger(double lowestValue, double highestValue) {
-		DecimalFormat format = new DecimalFormat("###.#");
-		double integer = lowestValue - 1;
+	private int getIntegerFromUser() {
+		integerNumber = scan.nextInt();
+		scan.nextLine();
+		return integerNumber;
+	}
+
+	public int getValidInteger(int lowestValue, int highestValue) {
 		do {
 			try {
-
-				System.out.println("Kérem, adjon meg egy egész számot ami egyenlő vagy nagyobb mint " + format.format(lowestValue) + " és egyenlő kisebb mint " + format.format(highestValue) + ".");
-				integer = getNumberFromUser();
-				if (isIntegerNotValid(integer, lowestValue, highestValue)) {
+				System.out.println("Kérem, adjon meg egy egész számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő kisebb mint " + highestValue + ".");
+				integerNumber = getIntegerFromUser();
+				if (isIntegerNotValid(integerNumber, lowestValue, highestValue)) {
 					System.out.println("A megadott szám nem felel még a kritériumnak.");
 				}
 			} catch (Exception e) {
-				System.out.println("Csak számot adhat meg.");
+				System.out.println("Csak egész számot adhat meg.");
 				scan.nextLine();
 			}
-		} while (isIntegerNotValid(integer, lowestValue, highestValue));
-		return integer;
+		} while (isIntegerNotValid(integerNumber, lowestValue, highestValue));
+		return integerNumber;
 	}
 
 	public double getValidDouble(double lowestValue, double highestValue) {
-		DecimalFormat format = new DecimalFormat("###.#");
-		double number = lowestValue - 1;
 		do {
 			try {
-
-				System.out.println("Kérem, adjon meg egy számot ami egyenlő vagy nagyobb mint " + format.format(lowestValue) + " és egyenlő vagy kisebb mint " + format.format(highestValue) + ".");
-				number = getNumberFromUser();
-				if (isDoubleNotValid(number, lowestValue, highestValue)) {
+				System.out.println("Kérem, adjon meg egy számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő vagy kisebb mint " + highestValue + ".");
+				doubleNumber = getDoubleFromUser();
+				if (isDoubleNotValid(doubleNumber, lowestValue, highestValue)) {
 					System.out.println("A megadott szám nem felel meg a kritériumnak.");
 				}
 			} catch (Exception e) {
 				System.out.println("Csak számot adhat meg.");
 				scan.nextLine();
 			}
-		} while (isDoubleNotValid(number, lowestValue, highestValue));
-		return number;
+		} while (isDoubleNotValid(doubleNumber, lowestValue, highestValue));
+		return doubleNumber;
 	}
 
-	private boolean isIntegerNotValid(double number, double lowestValue, double highestValue) {
-		return number % 1 != 0 || number < lowestValue || number > highestValue;
+	private boolean isIntegerNotValid(int number, int lowestValue, int highestValue) {
+		return number < lowestValue || number > highestValue;
 	}
 
 	private boolean isDoubleNotValid(double number, double lowestValue, double highestValue) {
 		return number < lowestValue || number > highestValue;
+	}
+
+	public int getIntegerNumber() {
+		return integerNumber;
+	}
+
+	public void setIntegerNumber(int integerNumber) {
+		this.integerNumber = integerNumber;
+	}
+
+	public double getDoubleNumber() {
+		return doubleNumber;
+	}
+
+	public void setDoubleNumber(double doubleNumber) {
+		this.doubleNumber = doubleNumber;
 	}
 
 }
