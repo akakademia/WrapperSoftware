@@ -6,47 +6,65 @@ import org.junit.jupiter.api.Test;
 
 class TestMenu {
 
-	Menu m;
+	Menu menu;
 	
 	@BeforeEach
 	void init() {
-		m = new Menu(MenuType.ADMIN);
-		m.fields = new String[] {"teszt"};
-		
+		menu = new Menu(MenuType.ADMIN);
 	}
 	
 	@Test
 	@DisplayName("getMenuType() return menuType? ")
 	void testGetMenuType() {
-		assertEquals(MenuType.ADMIN, m.getMenuType());
+		assertEquals(MenuType.ADMIN, menu.getMenuType());
 	}
 	
 	@Test
 	@DisplayName("getFields() return fields? ")
 	void testGetFields() {
-		assertTrue(m.getFields().length==1, "fields mező mérete 1?");
+		assertTrue(menu.getFields().length==2, "fields mező mérete 2 MenuType.ADMIN esetén?");
 	}
 	
 	@Test
-	@DisplayName("setAdditonalFields() with a new value")
-	void testSetAdditonalFieldsWithNewValue() {
-		m.setAdditonalFields(new String[] {"test2"});
-		assertEquals(2, m.fields.length, "fields tömb mérete 2?");
+	@DisplayName("getNumberOfBasicFields() return numberOfBasicFields")
+	void testGetNumberOfBasicFields() {
+		assertTrue(menu.getNumberOfBasicFields()==2, "getNumberOfBasicFields() return 2 MenuType.ADMIN esetén?");
+	}
+	
+	@Test
+	@DisplayName("setAdditonalFields() with a new value than fields size?")
+	void testSetAdditonalFieldsThanFieldsSize() {
+		menu.setAdditonalFields(new String[] {"test2"});
+		
+		assertEquals(3, menu.getFields().length, "getFields().length == 3?");
+	}
+	
+	@Test
+	@DisplayName("setAdditonalFields() with a new value than ValueOf numberOfBasicFields?")
+	void testSetAdditonalFieldsThanValueOfNumberOfBasicFields() {
+		menu.setAdditonalFields(new String[] {"test2"});
+		
+		assertEquals(3, menu.getNumberOfBasicFields(), "getNumberOfBasicFields == 3?");
 	}
 	
 	@Test
 	@DisplayName("setAdditonalFields() with null")
 	void testSetAdditonalFieldsWithNull() {
-		m.setAdditonalFields(null);
-		assertEquals(1, m.fields.length, "fields tömb mérete 1?");
+		menu.setAdditonalFields(null);
+		assertEquals(2, menu.getFields().length, "fields tömb mérete 2?");
 	}
 	
-	
+	@Test
+	@DisplayName("setAdditonalFields() with 0 length string")
+	void testSetAdditonalFieldsWithZeroLengthString() {
+		menu.setAdditonalFields(new String[] {""});
+		assertEquals(2, menu.getFields().length, "fields tömb mérete 2?");
+	}
 	
 	@Test
 	@DisplayName("toString tesztelése")
 	void testToString() {
-		assertEquals(String.format("%s%n%2d. %s%n", "Admin menü:", 0, "teszt"), m.toString());
+		assertEquals(String.format("%s%n%2d. %s%n%2d. %s%n", "Admin menü:", 0, "Tovább számításhoz", 1, "Adatmódosítás"), menu.toString());
 	}
 	
 	
