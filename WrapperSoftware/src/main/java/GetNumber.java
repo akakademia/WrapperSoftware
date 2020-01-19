@@ -1,4 +1,3 @@
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class GetNumber {
@@ -23,6 +22,7 @@ public class GetNumber {
 	}
 
 	public int getValidInteger(int lowestValue, int highestValue) {
+		integerNumber = lowestValue - 1;
 		do {
 			try {
 				System.out.println("Kérem, adjon meg egy egész számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő kisebb mint " + highestValue + ".");
@@ -39,6 +39,7 @@ public class GetNumber {
 	}
 
 	public double getValidDouble(double lowestValue, double highestValue) {
+		doubleNumber = lowestValue - 1;
 		do {
 			try {
 				System.out.println("Kérem, adjon meg egy számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő vagy kisebb mint " + highestValue + ".");
@@ -60,22 +61,6 @@ public class GetNumber {
 
 	private boolean isDoubleNotValid(double number, double lowestValue, double highestValue) {
 		return number < lowestValue || number > highestValue;
-	}
-
-	public int getIntegerNumber() {
-		return integerNumber;
-	}
-
-	public void setIntegerNumber(int integerNumber) {
-		this.integerNumber = integerNumber;
-	}
-
-	public double getDoubleNumber() {
-		return doubleNumber;
-	}
-
-	public void setDoubleNumber(double doubleNumber) {
-		this.doubleNumber = doubleNumber;
 	}
 
 }
