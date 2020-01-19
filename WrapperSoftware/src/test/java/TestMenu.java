@@ -40,14 +40,6 @@ class TestMenu {
 	}
 	
 	@Test
-	@DisplayName("setAdditonalFields() with a new value than ValueOf numberOfBasicFields?")
-	void testSetAdditonalFieldsThanValueOfNumberOfBasicFields() {
-		menu.setAdditonalFields(new String[] {"test2"});
-		
-		assertEquals(3, menu.getNumberOfBasicFields(), "getNumberOfBasicFields == 3?");
-	}
-	
-	@Test
 	@DisplayName("setAdditonalFields() with null")
 	void testSetAdditonalFieldsWithNull() {
 		menu.setAdditonalFields(null);
