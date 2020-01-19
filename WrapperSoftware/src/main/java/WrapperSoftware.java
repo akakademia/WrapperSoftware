@@ -12,7 +12,7 @@ public class WrapperSoftware {
 	private void run() {
 
 		Scanner scanner = new Scanner(System.in);
-
+		
 		Menu menu = new Menu(MenuType.ENTER); // ez a belépési rész
 		System.out.println(menu);
 
