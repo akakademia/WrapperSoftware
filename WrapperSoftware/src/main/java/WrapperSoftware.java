@@ -16,7 +16,7 @@ public class WrapperSoftware {
 		Menu menu = new Menu(MenuType.ENTER); // ez a belépési rész
 		System.out.println(menu);
 
-		if ((new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1)) != 0) {
+		if ((new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1)) != 0) {
 			chooseCategoryAndChangeDates(scanner); // ez az adatmódosítási rész
 		}
 
@@ -40,7 +40,7 @@ public class WrapperSoftware {
 		while (menuPoint == 0) {
 			Menu menu = new Menu(MenuType.SAVE_FILE_RESTART_LOG_OUT);
 			System.out.println(menu);
-			menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+			menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 			if (menuPoint == 0) {
 				System.out.println("Fájlba mentés....");
 			}
@@ -62,7 +62,7 @@ public class WrapperSoftware {
 			System.out.println(Arrays.toString(productsInOrder));
 			System.out.println("Kedvezmény mértéke: " + discount);
 			System.out.println(menu);
-			menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+			menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 			if (menuPoint == 0) {
 				productsInOrder = productAddToOrder(scanner, productsAll, productsInOrder);
@@ -70,7 +70,7 @@ public class WrapperSoftware {
 				productsInOrder = productRemoveFromOrder(scanner, productsInOrder);
 			} else if (menuPoint == 2) {
 				System.out.println("Kedvezmény beállítása: ");
-				discount = (int) new GetNumber(scanner).getValidInteger(0, 100);
+				discount = (int) new GetNumber(scanner).getValidIntegerFromUser(0, 100);
 				System.out.println("Az új kedvezmény mértéke: " + discount);
 			}
 		} while (menuPoint != 3);
@@ -80,7 +80,7 @@ public class WrapperSoftware {
 		Menu menu = new Menu(MenuType.PRODUCTS_LIST_TO_REMOVE);
 		menu.setAdditonalFields(productsInOrder);
 		System.out.println(menu);
-		int menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+		int menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		if (menuPoint != 0) {
 			String[] newOrder = new String[productsInOrder.length - 1];
@@ -99,7 +99,7 @@ public class WrapperSoftware {
 		Menu menu = new Menu(MenuType.PRODUCTS_LIST_TO_ADD);
 		menu.setAdditonalFields(productsAll);
 		System.out.println(menu);
-		int menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+		int menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		if (menuPoint != 0) {
 			if (productsInOrder == null || productsInOrder.length < 1 || productsInOrder[0] == null) {
@@ -120,7 +120,7 @@ public class WrapperSoftware {
 		Menu menu = new Menu(MenuType.ADMIN);
 		int menuPoint = -1;
 		System.out.println(menu);
-		menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+		menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		if (menuPoint != 0) {
 			chooseCategory(scanner);
@@ -132,7 +132,7 @@ public class WrapperSoftware {
 		int menuPoint = -1;
 		while (menuPoint != 0) {
 			System.out.println(menu);
-			menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+			menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 			if (menuPoint != 0) {
 				int category = menuPoint - menu.getNumberOfBasicFields();
@@ -149,7 +149,7 @@ public class WrapperSoftware {
 		int menuPoint = -1;
 		do {
 			System.out.println(menu);
-			menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+			menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 			if (menuPoint != 0) {
 				int productID = menuPoint;
@@ -169,7 +169,7 @@ public class WrapperSoftware {
 		Menu menu = new Menu(MenuType.FIELDS_FOR_DATE_CHANGE);
 		menu.setAdditonalFields(fieldsToChange);
 		System.out.println(menu);
-		int menuPoint = (int) new GetNumber(scanner).getValidInteger(0, menu.getFields().length - 1);
+		int menuPoint = (int) new GetNumber(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1);
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		return menuPoint - menu.getNumberOfBasicFields();
 	}
@@ -178,7 +178,7 @@ public class WrapperSoftware {
 		System.out.println("Ez a metódus kiválasztót termék - " + productName + " adatát - " + productFieldName + " változtat...");
 		System.out.println("productID = " + productID + ", fieldID = " + index);
 		System.out.println("Kérem, adja meg az új " + productFieldName + " értékét: ");
-		int newDate = (int) new GetNumber(scanner).getValidInteger(0, Integer.MAX_VALUE);
+		int newDate = (int) new GetNumber(scanner).getValidIntegerFromUser(0, Integer.MAX_VALUE);
 		System.out.println("A(z) " + productFieldName + " új értéke = " + newDate);
 	}
 
