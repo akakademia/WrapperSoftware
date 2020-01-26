@@ -4,7 +4,6 @@ public class GetNumber {
 	private Scanner scan;
 	private int integerNumber;
 	private double doubleNumber;
-	private boolean isInputInvalid = true;
 
 	public GetNumber(Scanner scan) {
 		this.scan = scan;
@@ -22,40 +21,38 @@ public class GetNumber {
 		return integerNumber;
 	}
 
-	public int getValidIntegerFromUser(int lowestValue, int highestValue) {
-		while (isInputInvalid) {
+	public void getValidIntegerFromUser(String friendlyMessage, String incorrectInputMessage, String exceptionMessage, int lowestValue, int highestValue) {
+		while (true) {
 			try {
-				System.out.println("Kérem, adjon meg egy egész számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő kisebb mint " + highestValue + ".");
+				System.out.println(friendlyMessage);
 				integerNumber = getIntegerFromUser();
 				if (isIntegerNotValid(integerNumber, lowestValue, highestValue)) {
-					System.out.println("A megadott szám nem felel még a kritériumnak.");
+					System.out.println(incorrectInputMessage);
 				} else {
-					return integerNumber;
+					break;
 				}
 			} catch (Exception e) {
-				System.out.println("Csak egész számot adhat meg.");
+				System.out.println(exceptionMessage);
 				scan.nextLine();
 			}
 		}
-		return integerNumber;
 	}
 
-	public double getValidDoubleFromUser(double lowestValue, double highestValue) {
-		while (isInputInvalid) {
+	public void getValidDoubleFromUser(String friendlyMessage, String incorrectInputMessage, String exceptionMessage, double lowestValue, double highestValue) {
+		while (true) {
 			try {
-				System.out.println("Kérem, adjon meg egy egész számot ami egyenlő vagy nagyobb mint " + lowestValue + " és egyenlő kisebb mint " + highestValue + ".");
+				System.out.println(friendlyMessage);
 				doubleNumber = getDoubleFromUser();
 				if (isDoubleNotValid(doubleNumber, lowestValue, highestValue)) {
-					System.out.println("A megadott szám nem felel még a kritériumnak.");
+					System.out.println(incorrectInputMessage);
 				} else {
-					return doubleNumber;
+					break;
 				}
 			} catch (Exception e) {
-				System.out.println("Csak egész számot adhat meg.");
+				System.out.println(exceptionMessage);
 				scan.nextLine();
 			}
 		}
-		return doubleNumber;
 	}
 
 	private boolean isIntegerNotValid(int number, int lowestValue, int highestValue) {
