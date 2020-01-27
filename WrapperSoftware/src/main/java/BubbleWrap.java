@@ -15,6 +15,14 @@ public class BubbleWrap {
 		this.price = price;
 	}
 
+	public double getThicknessInCentimetre() {
+		return thicknessInCentimetre;
+	}
+
+	public void setThicknessInCentimetre(double thicknessInCentimetre) {
+		this.thicknessInCentimetre = thicknessInCentimetre;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -37,14 +45,6 @@ public class BubbleWrap {
 
 	public void setLengthInCentimetre(int lengthInCentimetre) {
 		this.lengthInCentimetre = lengthInCentimetre;
-	}
-
-	public double getThicknessInMillimetre() {
-		return thicknessInCentimetre;
-	}
-
-	public void setThicknessInMillimetre(double thicknessInCentimetre) {
-		this.thicknessInCentimetre = thicknessInCentimetre;
 	}
 
 	public int getPrice() {
