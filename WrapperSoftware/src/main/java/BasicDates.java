@@ -110,7 +110,7 @@ public class BasicDates {
 
 		String friendlyMessage = null;
 		String incorrectInputMessage = null;
-		String exceptionMessage = null;
+		String exceptionMessage = "HIBA!";
 		double lowestValue = 1.0;
 		double highestValue = 20.0;
 
@@ -146,7 +146,7 @@ public class BasicDates {
 
 		String friendlyMessage = null;
 		String incorrectInputMessage = null;
-		String exceptionMessage = null;
+		String exceptionMessage = "HIBA!";
 		int lowestValue = 0;
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
@@ -188,7 +188,7 @@ public class BasicDates {
 
 		String friendlyMessage = null;
 		String incorrectInputMessage = null;
-		String exceptionMessage = null;
+		String exceptionMessage = "HIBA!";
 		int lowestValue = 1;
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
@@ -223,7 +223,7 @@ public class BasicDates {
 
 		String friendlyMessage = null;
 		String incorrectInputMessage = null;
-		String exceptionMessage = null;
+		String exceptionMessage = "HIBA!";
 		int lowestValue = 1;
 		int highestValue = 2000;
 		double lowestDoubleValue = 0.01;
