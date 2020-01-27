@@ -1,4 +1,4 @@
-package Login;
+package wrapppersoftware.login;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +7,8 @@ import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import wrappersoftware.login.Login;
 
 class TestLogin {
 	Login login1;

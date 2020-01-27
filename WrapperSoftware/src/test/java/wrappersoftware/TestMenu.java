@@ -1,8 +1,12 @@
+package wrappersoftware;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import wrappersoftware.Menu;
+import wrappersoftware.MenuType;
 
 class TestMenu {
 
@@ -58,14 +62,4 @@ class TestMenu {
 	void testToString() {
 		assertEquals(String.format("%s%n%2d. %s%n%2d. %s%n", "Admin menü:", 0, "Tovább számításhoz", 1, "Adatmódosítás"), menu.toString());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

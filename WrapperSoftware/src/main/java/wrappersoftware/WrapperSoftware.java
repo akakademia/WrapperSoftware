@@ -1,7 +1,6 @@
+package wrappersoftware;
 import java.util.Arrays;
 import java.util.Scanner;
-
-import Login.GetInputFromUser;
 
 public class WrapperSoftware {
 
@@ -18,7 +17,7 @@ public class WrapperSoftware {
 		System.out.println("Welcome to the WrapperSoftware created by Team7!");
 		Menu menu = new Menu(MenuType.ENTER); // ez a belépési rész
 		System.out.println(menu);
-
+		
 		if ((new GetInputFromUser(scanner).getValidIntegerFromUser(0, menu.getFields().length - 1)) != 0) {
 			chooseCategoryAndChangeDates(scanner); // ez az adatmódosítási rész
 		}

@@ -1,5 +1,7 @@
-package Login;
+package wrappersoftware.login;
 import java.util.Scanner;
+
+import wrappersoftware.GetInputFromUser;
 
 public class Login {
 	private Scanner scan;
