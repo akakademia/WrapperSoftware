@@ -8,10 +8,10 @@ public class Login {
 	private String passwordGivenByUser;
 	private boolean isPasswordCorrect;
 	
-	private UserInputFakeClassToTestLogin input = new UserInputFakeClassToTestLogin(scan);
-
+	private GetInputFromUser in = new GetInputFromUser(scan);
+	
 	public Login(Scanner scan) {
-		passwordGivenByUser = input.getInputFromUserFakeMethod(scan);
+		passwordGivenByUser = in.getPasswordFromUser(scan);
 		setIsPasswordCorrect();
 	}
 	/**

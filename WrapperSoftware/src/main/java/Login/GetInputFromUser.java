@@ -1,11 +1,23 @@
+package Login;
+
 import java.util.Scanner;
 
-public class GetNumber {
+public class GetInputFromUser {
 	private Scanner scan;
 	private int integerNumber;
 	private double doubleNumber;
+	private String friendlyMessage;
+	private String incorrectInputMessage;
+	private String exceptionMessage;
 
-	public GetNumber(Scanner scan) {
+	public GetInputFromUser(Scanner scan, String friendlyMessage, String incorrectInputMessage, String exceptionMessage) {
+		this.scan = scan;
+		this.friendlyMessage = friendlyMessage;
+		this.incorrectInputMessage = incorrectInputMessage;
+		this.exceptionMessage = exceptionMessage;
+	}
+
+	public GetInputFromUser(Scanner scan) {
 		this.scan = scan;
 	}
 
@@ -21,7 +33,16 @@ public class GetNumber {
 		return integerNumber;
 	}
 
-	public void getValidIntegerFromUser(String friendlyMessage, String incorrectInputMessage, String exceptionMessage, int lowestValue, int highestValue) {
+	public String getPasswordFromUser(Scanner scan) {
+		String password;
+		do {
+			System.out.print("Kérem, adja meg jelszót: ");
+			password = scan.nextLine();
+		} while (password.length() < 1);
+		return password;
+	}
+
+	public void getValidIntegerFromUser(int lowestValue, int highestValue) {
 		while (true) {
 			try {
 				System.out.println(friendlyMessage);
@@ -38,7 +59,7 @@ public class GetNumber {
 		}
 	}
 
-	public void getValidDoubleFromUser(String friendlyMessage, String incorrectInputMessage, String exceptionMessage, double lowestValue, double highestValue) {
+	public void getValidDoubleFromUser(double lowestValue, double highestValue) {
 		while (true) {
 			try {
 				System.out.println(friendlyMessage);
