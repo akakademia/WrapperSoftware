@@ -1,3 +1,4 @@
+package wrappersoftware;
 
 public enum MenuType {
 	ENTER("Belépési menü"),

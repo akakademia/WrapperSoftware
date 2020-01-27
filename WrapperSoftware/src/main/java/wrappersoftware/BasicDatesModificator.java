@@ -1,3 +1,5 @@
+package wrappersoftware;
+
 import java.util.Scanner;
 
 public class BasicDatesModificator {
@@ -7,7 +9,6 @@ public class BasicDatesModificator {
 
 		while (menuPoint != 0) {
 			Menu menu = new Menu(MenuType.ADMIN);
-			GetNumber getNumber = new GetNumber(scanner);
 			int categoryID = -1;
 			int productID = -1;
 			System.out.println(menu);
@@ -16,7 +17,8 @@ public class BasicDatesModificator {
 			String friendlyMessage = "Kérem, adja meg a menüpontót: ";
 			String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
 			String exceptionMessage = "HIBA!";
-			getNumber.getValidIntegerFromUser(friendlyMessage, incorrectInputMessage, exceptionMessage, lowestValue, highestValue);
+			GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
+			getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 			menuPoint = getNumber.getIntegerNumber();
 			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 			if (menuPoint == 0) {
@@ -36,7 +38,6 @@ public class BasicDatesModificator {
 
 	private int chooseProduct(BasicDates basicDates, Scanner scanner, int categoryID) {
 		Menu menu = new Menu(MenuType.PRODUCTS_LIST_FOR_DATE_CHANGE);
-		GetNumber getNumber = new GetNumber(scanner);
 		menu.setAdditonalFields(basicDates.listProducts(categoryID));
 		int menuPoint = -1;
 		System.out.println(menu);
@@ -45,7 +46,8 @@ public class BasicDatesModificator {
 		String friendlyMessage = "Kérem, adja meg a menüpontót: ";
 		String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
 		String exceptionMessage = "HIBA!";
-		getNumber.getValidIntegerFromUser(friendlyMessage, incorrectInputMessage, exceptionMessage, lowestValue, highestValue);
+		GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		menuPoint = getNumber.getIntegerNumber();
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		if (menuPoint == 0) {
@@ -56,7 +58,6 @@ public class BasicDatesModificator {
 
 	private int chooseCategory(BasicDates basicDates, Scanner scanner) {
 		Menu menu = new Menu(MenuType.CATEGORIES_FOR_DATE_CHANGE);
-		GetNumber getNumber = new GetNumber(scanner);
 		menu.setAdditonalFields(basicDates.listCategories());
 		int menuPoint = -1;
 		System.out.println(menu);
@@ -65,7 +66,8 @@ public class BasicDatesModificator {
 		String friendlyMessage = "Kérem, adja meg a menüpontót: ";
 		String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
 		String exceptionMessage = "HIBA!";
-		getNumber.getValidIntegerFromUser(friendlyMessage, incorrectInputMessage, exceptionMessage, lowestValue, highestValue);
+		GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		menuPoint = getNumber.getIntegerNumber();
 		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
 		if (menuPoint == 0) {
