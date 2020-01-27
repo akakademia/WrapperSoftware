@@ -21,7 +21,7 @@ public enum MenuType {
 		case ADMIN:
 			return new String[] { "Tovább számításhoz", "Adatmódosítás" };
 		case CATEGORIES_FOR_DATE_CHANGE:
-			return new String[] { "Tovább számításhoz", "Tea", "Mézes termék", "Dzsemes termék", "Dekorkarton", "Térkitöltő", "Matrica" };
+			return new String[] { "Vissza az adatmódosítási menübe"};
 		case PRODUCTS_LIST_FOR_DATE_CHANGE:
 			return new String[] { "Vissza az adatmódosítási menübe" };
 		case FIELDS_FOR_DATE_CHANGE:
