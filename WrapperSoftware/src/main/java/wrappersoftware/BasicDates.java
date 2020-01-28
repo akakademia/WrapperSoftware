@@ -141,7 +141,7 @@ public class BasicDates {
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
 		double highestDoubleValue = 10.0;
-		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
+		GetInputFromUser getNumber = new GetInputFromUser(scan);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
 		String name = "ERRE MÉG NINCS METÓDUS";
