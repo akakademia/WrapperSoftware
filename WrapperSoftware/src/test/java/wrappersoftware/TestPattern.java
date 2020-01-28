@@ -7,22 +7,24 @@ import org.junit.jupiter.api.Test;
 
 public class TestPattern {
     
-    Pattern pattern;
+    Pattern pattern1;
+    Pattern pattern2;
     
     @BeforeEach
     public void init(){
-        pattern = new Pattern();
+        pattern1 = new Pattern();
+        pattern2 = new Pattern(100, 200);
     }
     
     @Test
     @DisplayName("calculateWidthOfThePaperFromBoxSize tesztelése")
     public void TestCalculateWidthOfThePaperFromBoxSize(){
-        assertEquals(500, pattern.calculateWidthOfThePaperFromBoxSize(100, 200));
+        assertEquals(500, pattern1.calculateWidthOfThePaperFromBoxSize(100, 200));
     }
     
     @Test
     @DisplayName("calculateLengthOfThePaperFromBoxSize tesztelése")
     public void TestCalculateLengthOfThePaperFromBoxSize(){
-        assertEquals(605, pattern.calculateLengthOfThePaperFromBoxSize(100, 200));
+        assertEquals(605, pattern1.calculateLengthOfThePaperFromBoxSize(100, 200));
     }
 }
