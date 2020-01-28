@@ -4,38 +4,53 @@ import java.util.ArrayList;
 
 public class Order {
 
-	private ArrayList<GlassyProduct> order;
+	private ArrayList<GlassyProduct> products;
+	private int discount;
 
 	public Order() {
-		this.order = new ArrayList<GlassyProduct>();
+		this.products = new ArrayList<GlassyProduct>();
 	}
 
-	public ArrayList<GlassyProduct> getOrder() {
-		return order;
+	public ArrayList<GlassyProduct> getProducts() {
+		return products;
 	}
 
-	public void setOrder(ArrayList<GlassyProduct> order) {
-		this.order = order;
+	public void setOrder(ArrayList<GlassyProduct> products) {
+		this.products = products;
 	}
 
-	public void printProducts() {
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	public void printOrder() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Megrendelés tartalma: ");
 		builder.append(String.format("%n"));
-		for (int i = 0; i < order.size(); i++) {
-			if (order.isEmpty()) {
-				builder.append("üres.");
-				break;
-			}
-			if (order.get(i) != null) {
-				builder.append(order.get(i)
-						.toString());
-				builder.append(" - ");
-				builder.append(order.get(i)
-						.getAmountInOrder());
-				builder.append("db.");
-				builder.append(String.format("%n"));
+		if (products.isEmpty()) {
+			builder.append("üres.");
+		} else {
+			for (int i = 0; i < products.size(); i++) {
+				if (products.get(i) != null) {
+					builder.append(products.get(i)
+							.toString());
+					builder.append(" - ");
+					builder.append(products.get(i)
+							.getAmountInOrder());
+					builder.append("db.");
+					builder.append(String.format("%n"));
+				}
 			}
 		}
+		builder.append(String.format("%n"));
+		builder.append("Kedvezmény mértéke: ");
+		builder.append(discount);
+		builder.append("%");
+		
+		System.out.println(builder);
 	}
 }

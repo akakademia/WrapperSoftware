@@ -39,7 +39,7 @@ public class WrapperSoftware {
 
 		while (!isProgramEnd) {
 			Order order = new Order();
-			new OrderCompilator().setUpOrder(basicDates, order); // ez a megrendelés összeállítási rész
+			new OrderCompilator().setUpOrder(basicDates, order, scanner); // ez a megrendelés összeállítási rész
 
 			System.out.println(); // ez a számolási rész
 			System.out.println("SZÁMÍTÁS....");
