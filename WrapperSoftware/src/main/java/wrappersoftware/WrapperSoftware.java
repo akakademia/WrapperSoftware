@@ -60,7 +60,6 @@ public class WrapperSoftware {
 				if (menuPoint == 1) {
 					System.out.println("Az új megrendelés összeállítása:");
 					System.out.println();
-					continue;
 				} else {
 					System.out.println("Fájlba mentés....");
 					System.out.println();
