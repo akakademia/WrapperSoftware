@@ -13,7 +13,7 @@ public class Login {
 	private GetInputFromUser in = new GetInputFromUser(scan);
 	
 	public Login(Scanner scan) {
-		passwordGivenByUser = in.getPasswordFromUser(scan);
+		passwordGivenByUser = in.getPasswordFromUser();
 		setIsPasswordCorrect();
 	}
 	/**
