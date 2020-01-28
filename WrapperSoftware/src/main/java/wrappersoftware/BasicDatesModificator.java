@@ -14,13 +14,9 @@ public class BasicDatesModificator {
 			System.out.println(menu);
 			int lowestValue = 0;
 			int highestValue = menu.getFields().length - 1;
-			String friendlyMessage = "Kérem, adja meg a menüpontót: ";
-			String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
-			String exceptionMessage = "HIBA!";
-			GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
-			getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-			menuPoint = getNumber.getIntegerNumber();
-			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
+			GetInputFromUser getNumber = new GetInputFromUser(scanner, "Kérem, adja meg a menüpontot: ");
+			menuPoint = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+			System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpontot választott!");
 			if (menuPoint == 0) {
 				continue;
 			}
@@ -43,13 +39,9 @@ public class BasicDatesModificator {
 		System.out.println(menu);
 		int lowestValue = 0;
 		int highestValue = menu.getFields().length - 1;
-		String friendlyMessage = "Kérem, adja meg a menüpontót: ";
-		String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
-		String exceptionMessage = "HIBA!";
-		GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		menuPoint = getNumber.getIntegerNumber();
-		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
+		GetInputFromUser getNumber = new GetInputFromUser(scanner, "Kérem, adja meg a menüpontot: ");
+		menuPoint = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpontot választott!");
 		if (menuPoint == 0) {
 			return -1;
 		}
@@ -63,13 +55,9 @@ public class BasicDatesModificator {
 		System.out.println(menu);
 		int lowestValue = 0;
 		int highestValue = menu.getFields().length - 1;
-		String friendlyMessage = "Kérem, adja meg a menüpontót: ";
-		String incorrectInputMessage = "Figyelem! Csak " + lowestValue + " és " + highestValue + " között egész számot adhat!";
-		String exceptionMessage = "HIBA!";
-		GetInputFromUser getNumber = new GetInputFromUser(scanner, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		menuPoint = getNumber.getIntegerNumber();
-		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpóntót választótt!");
+		GetInputFromUser getNumber = new GetInputFromUser(scanner, "Kérem, adja meg a menüpontot: ");
+		menuPoint = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		System.out.println(menuPoint + " - " + menu.getFields()[menuPoint] + " - menüpontot választott!");
 		if (menuPoint == 0) {
 			return -1;
 		}

@@ -4,17 +4,11 @@ import java.util.Scanner;
 
 public class GetInputFromUser {
 	private Scanner scan;
-	private int integerNumber;
-	private double doubleNumber;
 	private String friendlyMessage;
-	private String incorrectInputMessage;
-	private String exceptionMessage;
 
-	public GetInputFromUser(Scanner scan, String friendlyMessage, String incorrectInputMessage, String exceptionMessage) {
+	public GetInputFromUser(Scanner scan, String friendlyMessage) {
 		this.scan = scan;
 		this.friendlyMessage = friendlyMessage;
-		this.incorrectInputMessage = incorrectInputMessage;
-		this.exceptionMessage = exceptionMessage;
 	}
 
 	public GetInputFromUser(Scanner scan) {
@@ -22,13 +16,13 @@ public class GetInputFromUser {
 	}
 
 	private double getDoubleFromUser() {
-		doubleNumber = scan.nextDouble();
+		double doubleNumber = scan.nextDouble();
 		scan.nextLine();
 		return doubleNumber;
 	}
 
 	private int getIntegerFromUser() {
-		integerNumber = scan.nextInt();
+		int integerNumber = scan.nextInt();
 		scan.nextLine();
 		return integerNumber;
 	}
@@ -42,38 +36,42 @@ public class GetInputFromUser {
 		return password;
 	}
 
-	public void getValidIntegerFromUser(int lowestValue, int highestValue) {
+	public int getValidIntegerFromUser(int lowestValue, int highestValue) {
+		int integerNumber;
 		while (true) {
 			try {
 				System.out.println(friendlyMessage);
 				integerNumber = getIntegerFromUser();
 				if (isIntegerNotValid(integerNumber, lowestValue, highestValue)) {
-					System.out.println(incorrectInputMessage);
+					System.out.println("A megadott szám tartományon kívüli.");
 				} else {
 					break;
 				}
 			} catch (Exception e) {
-				System.out.println(exceptionMessage);
+				System.out.println("Csak egész számot adhat meg.");
 				scan.nextLine();
 			}
 		}
+		return integerNumber;
 	}
 
-	public void getValidDoubleFromUser(double lowestValue, double highestValue) {
+	public double getValidDoubleFromUser(double lowestValue, double highestValue) {
+		double doubleNumber;
 		while (true) {
 			try {
 				System.out.println(friendlyMessage);
 				doubleNumber = getDoubleFromUser();
 				if (isDoubleNotValid(doubleNumber, lowestValue, highestValue)) {
-					System.out.println(incorrectInputMessage);
+					System.out.println("A megadott szám tartományon kívüli.");
 				} else {
 					break;
 				}
 			} catch (Exception e) {
-				System.out.println(exceptionMessage);
+				System.out.println("Csak számot adhat meg.");
 				scan.nextLine();
 			}
 		}
+		return doubleNumber;
 	}
 
 	private boolean isIntegerNotValid(int number, int lowestValue, int highestValue) {
@@ -82,14 +80,6 @@ public class GetInputFromUser {
 
 	private boolean isDoubleNotValid(double number, double lowestValue, double highestValue) {
 		return number < lowestValue || number > highestValue;
-	}
-
-	public int getIntegerNumber() {
-		return integerNumber;
-	}
-
-	public double getDoubleNumber() {
-		return doubleNumber;
 	}
 
 }

@@ -106,37 +106,25 @@ public class BasicDates {
 	private void setGlassyProducts(int productID, Scanner scan) {
 		System.out.println();
 		String friendlyMessage = null;
-		String incorrectInputMessage = null;
-		String exceptionMessage = "HIBA!";
 		double lowestValue = 1.0;
 		double highestValue = 20.0;
-		GetInputFromUser getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
 		String name = "ERRE MÉG NINCS METÓDUS";
 
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
-		friendlyMessage = "Kérem, adja meg az üveg szélességét (cm-ben és tört szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestValue, highestValue);
-		double widthInCentimetre = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg szélességét cm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
+		double widthInCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
 
-		friendlyMessage = "Kérem, adja meg az üveg magasságát (cm-ben és tört szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestValue, highestValue);
-		double heightInCentimetre = getNumber.getDoubleNumber();
-
-		friendlyMessage = "Kérem, adja meg az üveg súlyát (kg-ben és tört szám formátumban): ";
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg magasságát cm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
+		double heightInCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
 		highestValue = 50.0;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestValue, highestValue);
-		double weightInKilogram = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg súlyát kg-ban ami " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
+		double weightInKilogram = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
 
-		friendlyMessage = "Kérem, adja meg az üveg űrtartalmát (ml-ben és tört szám formátumban): ";
 		highestValue = 3000.0;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestValue, highestValue);
-		double volumeInCubicCentimetre = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg űrtartalmát ml-ben ami " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
+		double volumeInCubicCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
 
 		glassyProducts[productID] = new GlassyProduct(name, widthInCentimetre, heightInCentimetre, weightInKilogram, volumeInCubicCentimetre);
 		System.out.println("Ezek a modosított termék adatai: ");
@@ -149,47 +137,32 @@ public class BasicDates {
 		System.out.println();
 
 		String friendlyMessage = null;
-		String incorrectInputMessage = null;
-		String exceptionMessage = "HIBA!";
 		int lowestValue = 0;
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
 		double highestDoubleValue = 10.0;
-		GetInputFromUser getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
 		String name = "ERRE MÉG NINCS METÓDUS";
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton szélességét (cm-ben és egész szám formátumban): ";
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int width = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton szélességét cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet: ");
+		int width = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton hosszúságát (cm-ben és egész szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int length = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton hosszúságát cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet: ");
+		int length = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton vastagságát (cm-ben és tört szám formátumban): ";
-		incorrectInputMessage = "Csak " + lowestDoubleValue + " és " + highestDoubleValue + " között adhat számót";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-		double thickness = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double thickness = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton teherbírását (kg-ben és tört szám formátumban): ";
 		highestDoubleValue = 100.0;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-		double carryingCapacity = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton teherbírásást kg-ban ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double carryingCapacity = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton árát (Ft-ban ): ";
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
 		lowestDoubleValue = 0.0;
 		highestDoubleValue = 1000000.0;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int price = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		cardboards[productID] = new Cardboard(name, width, length, thickness, carryingCapacity, price);
 		System.out.println("Ezek a modosított termék adatai: ");
 		System.out.println(cardboards[productID].toString());
@@ -200,39 +173,26 @@ public class BasicDates {
 		System.out.println();
 
 		String friendlyMessage = null;
-		String incorrectInputMessage = null;
-		String exceptionMessage = "HIBA!";
 		int lowestValue = 1;
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
 		double highestDoubleValue = 50.0;
-		GetInputFromUser getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		GetInputFromUser getNumber = new GetInputFromUser(scan, friendlyMessage);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
 		String name = "ERRE MÉG NINCS METÓDUS";
 
-		incorrectInputMessage = "Csak " + lowestDoubleValue + " és " + highestDoubleValue + " között adhat számót";
-		friendlyMessage = "Kérem, adja meg az matrica szélességét (cm-ben és tört szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-		double widthOfOneMatrixInCentimetre = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica szélességét cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double widthOfOneMatrixInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		friendlyMessage = "Kérem, adja meg az matrica hosszúságát (cm-ben és tört szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-		double lengthOfOneMatrixInCentimetre = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica hosszúságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double lengthOfOneMatrixInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		friendlyMessage = "Kérem, adja meg a matricák számát 1 íven (db): ";
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int piece = getNumber.getIntegerNumber();
-
-		friendlyMessage = "Kérem, adja meg az egy matricaív árát (Ft-ban): ";
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matricák darabszámát egy íven ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int piece = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		highestValue = 10000;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int price = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az egy matricaív árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		matrixSheets[productID] = new MatrixSheet(name, widthOfOneMatrixInCentimetre, lengthOfOneMatrixInCentimetre, piece, price);
 		System.out.println("Ezek a modosított termék adatai: ");
 		System.out.println(matrixSheets[productID].toString());
@@ -243,43 +203,31 @@ public class BasicDates {
 		System.out.println();
 
 		String friendlyMessage = null;
-		String incorrectInputMessage = null;
-		String exceptionMessage = "HIBA!";
 		int lowestValue = 1;
 		int highestValue = 2000;
 		double lowestDoubleValue = 0.01;
 		double highestDoubleValue = 50.0;
-		GetInputFromUser getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
+		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
 		String name = "ERRE MÉG NINCS METÓDUS";
 
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
-		friendlyMessage = "Kérem, adja meg a térkitöltő lap szélességét (cm-ben és egész szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int widthInCentimetre = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap szélességét cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int widthInCentimetre = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 
 		friendlyMessage = "Kérem, adja meg a térkitöltő lap hosszúságát (cm-ben és egész szám formátumban): ";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int lengthInCentimetre = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap hosszúságát cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int lengthInCentimetre = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton vastagságát (cm-ben és tört szám formátumban): ";
-		incorrectInputMessage = "Csak " + lowestDoubleValue + " és " + highestDoubleValue + " között adhat számót";
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-		double thicknessInCentimetre = getNumber.getDoubleNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double thicknessInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		friendlyMessage = "Kérem, adja meg a dekorkarton árát (Ft-ban): ";
-		incorrectInputMessage = "Csak " + lowestValue + " és " + highestValue + " között adhat számót";
 		lowestValue = 0;
 		highestValue = 100000;
-		getNumber = new GetInputFromUser(scan, friendlyMessage, incorrectInputMessage, exceptionMessage);
-		getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		int price = getNumber.getIntegerNumber();
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		bubbleWrap = new BubbleWrap(name, widthInCentimetre, lengthInCentimetre, thicknessInCentimetre, price);
-		System.out.println("Ezek a modosított termék adatai: ");
+		System.out.println("Ezek a módosított termék adatai: ");
 		System.out.println(bubbleWrap.toString());
 		System.out.println();
 	}
