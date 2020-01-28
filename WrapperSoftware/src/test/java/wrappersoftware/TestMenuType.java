@@ -26,10 +26,11 @@ class TestMenuType {
 		assertTrue(stringMenuType.contains("ADMIN"), "ADMIN van benne?");
 		assertTrue(stringMenuType.contains("CATEGORIES_FOR_DATE_CHANGE"), "CATEGORIES_FOR_DATE_CHANGE van benne?");
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_FOR_DATE_CHANGE"), "PRODUCTS_LIST_FOR_DATE_CHANGE van benne?");
-		assertTrue(stringMenuType.contains("FIELDS_FOR_DATE_CHANGE"), "FIELDS_FOR_DATE_CHANGE van benne?");
 		assertTrue(stringMenuType.contains("ORDER"), "ORDER van benne?");
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_TO_ADD"), "PRODUCTS_LIST_TO_ADD van benne?");
 		assertTrue(stringMenuType.contains("PRODUCTS_LIST_TO_REMOVE"), "PRODUCTS_LIST_TO_REMOVE van benne?");
+                assertTrue(stringMenuType.contains("SAVE_FILE_RESTART_LOG_OUT"), "SAVE_FILE_RESTART_LOG_OUT van benne?");
+        
 	}
 	
 	
@@ -53,14 +54,7 @@ class TestMenuType {
 		m = MenuType.PRODUCTS_LIST_FOR_DATE_CHANGE;
 		assertTrue(m.getBasicFields(m) != null);
 	}
-	
-	@Test
-	@DisplayName("getBasicFieldsWithFIELDS_FOR_DATE_CHANGE")
-	void testGetBasicFieldsWithFIELDS_FOR_DATE_CHANGE() {
-		m = MenuType.FIELDS_FOR_DATE_CHANGE;
-		assertTrue(m.getBasicFields(m) != null);
-	}
-	
+			
 	@Test
 	@DisplayName("getBasicFieldsWithORDER")
 	void testGetBasicFieldsWithORDER() {
