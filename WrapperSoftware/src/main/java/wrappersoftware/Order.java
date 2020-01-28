@@ -1,4 +1,5 @@
 package wrappersoftware;
+
 import java.util.ArrayList;
 
 public class Order {
@@ -16,15 +17,26 @@ public class Order {
 	public void setOrder(ArrayList<GlassyProduct> order) {
 		this.order = order;
 	}
-	
+
 	public void printProducts() {
-		StringBuilder builder=new StringBuilder();
+		StringBuilder builder = new StringBuilder();
+		builder.append("Megrendelés tartalma: ");
+		builder.append(String.format("%n"));
 		for (int i = 0; i < order.size(); i++) {
-			builder.append(order.get(i).toString());
-			builder.append(" - ");
-			builder.append(order.get(i).getAmountInOrder());
-			builder.append(" db.");
+			if (order.isEmpty()) {
+				builder.append("üres.");
+				break;
+			}
+			if (order.get(i) != null) {
+				builder.append(order.get(i)
+						.toString());
+				builder.append(" - ");
+				builder.append(order.get(i)
+						.getAmountInOrder());
+				builder.append("db.");
+				builder.append(String.format("%n"));
+			}
 		}
 	}
-	
+
 }

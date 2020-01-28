@@ -206,7 +206,7 @@ public class BasicDates {
 		int lowestValue = 1;
 		int highestValue = 2000;
 		double lowestDoubleValue = 0.01;
-		double highestDoubleValue = 50.0;
+		double highestDoubleValue = 3.0;
 		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
