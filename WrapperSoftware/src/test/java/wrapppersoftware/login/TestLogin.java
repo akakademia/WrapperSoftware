@@ -11,11 +11,11 @@ import org.junit.jupiter.api.Test;
 import wrappersoftware.login.Login;
 
 class TestLogin {
-	Login login1;
-	Login login2;
+	private Login login1;
+	private Login login2;
 	
 	@BeforeEach
-	void init() {
+	public void init() {
 		Scanner scan1 = new Scanner("Jelszó");
 		Scanner scan2 = new Scanner("alma");
 		login1 = new Login(scan1);
@@ -24,13 +24,27 @@ class TestLogin {
 	
 	@Test
 	@DisplayName("Login funkció tesztelése helyes jelszóval")
-	void testLoginWithCorrectValue() {
+	public void testLoginWithCorrectValue() {
 		assertEquals(true, login1.isPasswordCorrect());
 	}
 	
 	@Test
 	@DisplayName("Login funkció tesztelése helytelen jelszóval")
-	void testLoginWithIncorrectValue() {
+	public void testLoginWithIncorrectValue() {
 		assertEquals(false, login2.isPasswordCorrect());
+	}
+	
+	@Test
+	@DisplayName("toString tesztelése várt eredménnyel")
+	public void testToString1() {
+		assertTrue(login1.toString().equals("true"));
+		assertTrue(login2.toString().equals("false"));
+	}
+	
+	@Test
+	@DisplayName("toString tesztelése nem várt eredménnyel")
+	public void testToString2() {
+		assertFalse(login1.toString().equals("false"));
+		assertFalse(login2.toString().equals("true"));
 	}
 }

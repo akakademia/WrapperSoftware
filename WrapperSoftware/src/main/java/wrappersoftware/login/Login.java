@@ -4,16 +4,12 @@ import java.util.Scanner;
 import wrappersoftware.GetInputFromUser;
 
 public class Login {
-	private Scanner scan;
-	
 	private final String adminPassword = "Jelszó";
 	private String passwordGivenByUser;
 	private boolean isPasswordCorrect;
 	
-	private GetInputFromUser in = new GetInputFromUser(scan);
-	
 	public Login(Scanner scan) {
-		passwordGivenByUser = in.getPasswordFromUser();
+		passwordGivenByUser = new GetInputFromUser(scan).getPasswordFromUser();
 		setIsPasswordCorrect();
 	}
 	/**
