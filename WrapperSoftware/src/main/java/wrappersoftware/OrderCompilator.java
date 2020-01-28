@@ -105,6 +105,7 @@ public class OrderCompilator {
 							.getAmountInOrder()
 					+ " db.";
 		}
+		
 		return list;
 	}
 
