@@ -27,7 +27,7 @@ public class GetInputFromUser {
 		return integerNumber;
 	}
 
-	public String getPasswordFromUser(Scanner scan) {
+	public String getPasswordFromUser() {
 		String password;
 		do {
 			System.out.print("Kérem, adja meg jelszót: ");
