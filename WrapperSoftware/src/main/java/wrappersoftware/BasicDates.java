@@ -21,7 +21,8 @@ public class BasicDates {
 				new GlassyProduct("Kerek díszüveg", 6.0, 8.0, 0.1, 100), 
 				new GlassyProduct("Kerek díszüveg", 11.0, 9.0, 0.2, 200), 
 				new GlassyProduct("Caviar üveg", 6.0, 8.0, 0.1, 100),
-				new GlassyProduct("Caviar üveg", 12.0, 15.0, 0.21, 210) };
+				new GlassyProduct("Caviar üveg", 12.0, 15.0, 0.21, 210) 
+				};
 
 		cardboards = new Cardboard[] { 
 				new Cardboard("3 rétegű 'E'-hullám", 48, 68, 0.15, 5.0, 20), 
