@@ -50,7 +50,7 @@ public class OrderCompilator {
 	}
 
 	private void setDiscount(Order order, Scanner scanner) {
-		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg kedvezmény mértékét: ");
+		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg kedvezmény mértékét (0 és 100 között): ");
 		int discount = getInput.getValidIntegerFromUser(0, 100);
 		order.setDiscount(discount);
 	}
@@ -78,7 +78,7 @@ public class OrderCompilator {
 		int indexInOrder = order.getProducts()
 				.indexOf(productToRemove);
 
-		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot: ");
+		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot (lagalabb 1): ");
 		int amountToRemove = getInput.getValidIntegerFromUser(1, productToRemove.getAmountInOrder());
 
 		if (amountToRemove == productToRemove.getAmountInOrder()) {
@@ -127,7 +127,7 @@ public class OrderCompilator {
 	}
 
 	private void addProduct(Scanner scanner, Order order, BasicDates basicDates, int indexOfProductInBasicDates) {
-		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot: ");
+		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot (lagalabb 1): ");
 		int amountToAdd = getInput.getValidIntegerFromUser(1, 100);
 
 		GlassyProduct productToAdd = basicDates.getGlassyProducts()[indexOfProductInBasicDates];
