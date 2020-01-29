@@ -90,8 +90,7 @@ public class BasicDates {
 		return list;
 	}
 
-	public void setFieldsByMenu(int categoryID, int productID) {
-		Scanner scan = new Scanner(System.in);
+	public void setFieldsByMenu(int categoryID, int productID, Scanner scan) {
 		if (categoryID == 0) {
 			setGlassyProducts(productID, scan);
 		} else if (categoryID == 1) {
