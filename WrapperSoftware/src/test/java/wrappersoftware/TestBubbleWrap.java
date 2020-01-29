@@ -12,7 +12,7 @@ class TestBubbleWrap {
 	
 	@BeforeEach
 	public void init() {
-		bubblewrap = new BubbleWrap("AirPlus", 50, 50, 9, 250);
+		bubblewrap = new BubbleWrap("AirPlus", 50, 50, 9, 2, 250);
 	}
 	
 	@Test
