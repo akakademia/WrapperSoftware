@@ -10,20 +10,37 @@ public class BasicDates {
 	private BubbleWrap bubbleWrap;
 
 	{
-		glassyProducts = new GlassyProduct[] { new GlassyProduct("Csatos", 10.6, 16.0, 0.77, 1000), new GlassyProduct("Csatos", 12.5, 21.6, 1.44, 2000),
-				new GlassyProduct("Hatszögletes díszüveg", 5.7, 5.5, 0.1, 105), new GlassyProduct("Hatszögletes díszüveg", 10.4, 11.0, 0.2, 210),
-				new GlassyProduct("Hatszögletes díszüveg", 15.2, 16.5, 0.3, 305), new GlassyProduct("Kerek díszüveg", 4.0, 7.0, 0.07, 40), new GlassyProduct("Kerek díszüveg", 5.0, 7.0, 0.09, 50),
-				new GlassyProduct("Kerek díszüveg", 6.0, 8.0, 0.1, 100), new GlassyProduct("Kerek díszüveg", 11.0, 9.0, 0.2, 200), new GlassyProduct("Caviar üveg", 6.0, 8.0, 0.1, 100),
+		glassyProducts = new GlassyProduct[] { 
+				new GlassyProduct("Csatos", 10.6, 16.0, 0.77, 1000), 
+				new GlassyProduct("Csatos", 12.5, 21.6, 1.44, 2000),
+				new GlassyProduct("Hatszögletes díszüveg", 5.7, 5.5, 0.1, 105), 
+				new GlassyProduct("Hatszögletes díszüveg", 10.4, 11.0, 0.2, 210),
+				new GlassyProduct("Hatszögletes díszüveg", 15.2, 16.5, 0.3, 305), 
+				new GlassyProduct("Kerek díszüveg", 4.0, 7.0, 0.07, 40), 
+				new GlassyProduct("Kerek díszüveg", 5.0, 7.0, 0.09, 50),
+				new GlassyProduct("Kerek díszüveg", 6.0, 8.0, 0.1, 100), 
+				new GlassyProduct("Kerek díszüveg", 11.0, 9.0, 0.2, 200), 
+				new GlassyProduct("Caviar üveg", 6.0, 8.0, 0.1, 100),
 				new GlassyProduct("Caviar üveg", 12.0, 15.0, 0.21, 210) };
 
-		cardboards = new Cardboard[] { new Cardboard("3 rétegű 'E'-hullám", 48, 68, 0.15, 5.0, 1), new Cardboard("3 rétegű 'B'-hullám", 48, 68, 0.3, 10.0, 1),
-				new Cardboard("3 rétegű 'C'-hullám", 48, 68, 0.4, 15.0, 1), new Cardboard("5 rétegű 'BE'-hullám", 48, 68, 0.35, 20.0, 1), new Cardboard("5 rétegű 'BC'-hullám", 48, 68, 0.67, 30.0, 1),
-				new Cardboard("5 rétegű 'AC'-hullám", 48, 68, 0.87, 40.0, 1), new Cardboard("5 rétegű 'BE'-hullám", 48, 68, 1.38, 50.0, 1), };
+		cardboards = new Cardboard[] { 
+				new Cardboard("3 rétegű 'E'-hullám", 48, 68, 0.15, 5.0, 20), 
+				new Cardboard("3 rétegű 'B'-hullám", 48, 68, 0.3, 10.0, 30),
+				new Cardboard("3 rétegű 'C'-hullám", 48, 68, 0.4, 15.0, 40), 
+				new Cardboard("5 rétegű 'BE'-hullám", 48, 68, 0.35, 20.0, 50), 
+				new Cardboard("5 rétegű 'BC'-hullám", 48, 68, 0.67, 30.0, 60),
+				new Cardboard("5 rétegű 'AC'-hullám", 48, 68, 0.87, 40.0, 70), 
+				new Cardboard("7 rétegű 'AAC'-hullám", 48, 68, 1.38, 50.0, 110), 
+				};
 
-		matrixSheets = new MatrixSheet[] { new MatrixSheet("Kicsi", 3.8, 6.3, 21, 1), new MatrixSheet("Közepes", 7.4, 10.5, 21, 1), new MatrixSheet("Nagy", 11.0, 12.0, 21, 1),
-				new MatrixSheet("Extra nagy", 0.5, 20.0, 21, 1), };
+		matrixSheets = new MatrixSheet[] { 
+				new MatrixSheet("Kicsi", 3.8, 6.3, 21, 450), 
+				new MatrixSheet("Közepes", 7.4, 10.5, 21, 750), 
+				new MatrixSheet("Nagy", 11.0, 12.0, 21, 950),
+				new MatrixSheet("Extra nagy", 5.0, 20.0, 21, 1120), 
+				};
 
-		bubbleWrap = new BubbleWrap("Airplus", 50, 50, 1.5, 250);
+		bubbleWrap = new BubbleWrap("Airplus", 50, 50, 10.0, 2.0, 250);
 	}
 
 	public GlassyProduct[] getGlassyProducts() {
@@ -204,8 +221,8 @@ public class BasicDates {
 		String friendlyMessage = null;
 		int lowestValue = 1;
 		int highestValue = 2000;
-		double lowestDoubleValue = 0.01;
-		double highestDoubleValue = 3.0;
+		double lowestDoubleValue = 0.1;
+		double highestDoubleValue = 20.0;
 		GetInputFromUser getNumber = new GetInputFromUser(scan, null);
 
 		friendlyMessage = "Kérem, adja meg a termék nevét: ";
@@ -218,14 +235,19 @@ public class BasicDates {
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap hosszúságát cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int lengthInCentimetre = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
 		double thicknessInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
+
+		highestDoubleValue = thicknessInCentimetre;
+		getNumber = new GetInputFromUser(scan,
+				"Kérem, adja meg a térkitöltő lap zsugorodási mértékét cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		double retractionInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
 		lowestValue = 0;
 		highestValue = 100000;
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		bubbleWrap = new BubbleWrap(name, widthInCentimetre, lengthInCentimetre, thicknessInCentimetre, price);
+		bubbleWrap = new BubbleWrap(name, widthInCentimetre, lengthInCentimetre, thicknessInCentimetre, retractionInCentimetre, price);
 		System.out.println("Ezek a módosított termék adatai: ");
 		System.out.println(bubbleWrap.toString());
 		System.out.println();
