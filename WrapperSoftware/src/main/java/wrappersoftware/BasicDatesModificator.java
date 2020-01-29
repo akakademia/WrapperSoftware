@@ -28,7 +28,7 @@ public class BasicDatesModificator {
 			if (productID < 0) {
 				continue;
 			}
-			basicDates.setFieldsByMenu(categoryID, productID);
+			basicDates.setFieldsByMenu(categoryID, productID,scanner);
 		}
 	}
 
