@@ -26,7 +26,12 @@ public class Order {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-
+//-------------
+	public void setProducts(ArrayList<GlassyProduct> products) {
+		this.products = products;
+	}
+//--------------
+	
 	public void printOrder() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Megrendelés tartalma: ");
@@ -53,4 +58,5 @@ public class Order {
 		
 		System.out.println(builder);
 	}
+
 }

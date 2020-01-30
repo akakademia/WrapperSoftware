@@ -31,18 +31,16 @@ class TestBasicDates {
 	
 	
 	//@formatter:off
-//    @Test
-//    @DisplayName("getter és setter tesztelése")
-//    public void testGetterSetter() {
-//        PojoClass pojoclass = PojoClassFactory.getPojoClass(BasicDates.class);
-//        Validator validator = ValidatorBuilder
-//                .create()
-//                .with(new SetterMustExistRule())
-//                .with(new GetterMustExistRule())
-//                .with(new SetterTester())
-//                .with(new GetterTester())
-//                .build();
-//        validator.validate(pojoclass);
-//    }
+    @Test
+    @DisplayName("getter és setter tesztelése")
+    public void testGetterSetter() {
+        PojoClass pojoclass = PojoClassFactory.getPojoClass(BasicDates.class);
+        Validator validator = ValidatorBuilder
+                .create()
+                .with(new GetterMustExistRule())
+                .with(new GetterTester())
+                .build();
+        validator.validate(pojoclass);
+    }
     //@formatter:on
 }
