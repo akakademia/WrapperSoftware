@@ -15,7 +15,7 @@ public class Order {
 		return products;
 	}
 
-	public void setOrder(ArrayList<GlassyProduct> products) {
+	public void setProducts(ArrayList<GlassyProduct> products) {
 		this.products = products;
 	}
 
@@ -26,11 +26,6 @@ public class Order {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-//-------------
-	public void setProducts(ArrayList<GlassyProduct> products) {
-		this.products = products;
-	}
-//--------------
 	
 	public void printOrder() {
 		StringBuilder builder = new StringBuilder();
