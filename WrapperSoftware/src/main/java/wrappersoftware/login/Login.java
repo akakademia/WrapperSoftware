@@ -9,7 +9,7 @@ public class Login {
 	private boolean isPasswordCorrect;
 	
 	public Login(Scanner scan) {
-		passwordGivenByUser = new GetInputFromUser(scan).getPasswordFromUser();
+		passwordGivenByUser = new GetInputFromUser(scan).getStringInputFromUser("Kérem, adja meg jelszót: ");
 		setIsPasswordCorrect();
 	}
 	/**

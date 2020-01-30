@@ -27,10 +27,10 @@ public class GetInputFromUser {
 		return integerNumber;
 	}
 
-	public String getPasswordFromUser() {
+	public String getStringInputFromUser(String message) {
 		String password;
 		do {
-			System.out.print("Kérem, adja meg jelszót: ");
+			System.out.print(message);
 			password = scan.nextLine();
 		} while (password.length() < 1);
 		return password;
