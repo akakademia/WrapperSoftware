@@ -41,7 +41,7 @@ public class Cardboard {
 		return thickness;
 	}
 
-	public void setThickness(int thickness) {
+	public void setThickness(double thickness) {
 		this.thickness = thickness;
 	}
 
@@ -57,7 +57,7 @@ public class Cardboard {
 		return carryingCapacity;
 	}
 
-	public void setCarryingCapacity(int carryingCapacity) {
+	public void setCarryingCapacity(double carryingCapacity) {
 		this.carryingCapacity = carryingCapacity;
 	}
 

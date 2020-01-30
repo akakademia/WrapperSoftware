@@ -15,35 +15,24 @@ import com.openpojo.validation.rule.impl.SetterMustExistRule;
 import com.openpojo.validation.test.impl.GetterTester;
 import com.openpojo.validation.test.impl.SetterTester;
 
-class TestMatrixSheet {
+class TestBox {
 
-	MatrixSheet matrixSheet;
+	Box box1;
+	Box box2;
 
 	@BeforeEach
 	public void init() {
-		matrixSheet = new MatrixSheet("63 x 38 mm", 6.3, 3.8, 21, 450);
-
+		box1 = new Box();
+		box2 = new Box(100, 100, 100);
 	}
 
-	@Test
-	@DisplayName("toString tesztelése")
-	public void testToString() {
-		assertTrue(matrixSheet.toString().contains("Matrica: " + matrixSheet.getName()));
-	}
-
-	//@formatter:off
 	@Test
 	@DisplayName("getter és setter tesztelése")
 	public void testGetterSetter() {
-	    PojoClass pojoclass = PojoClassFactory.getPojoClass(MatrixSheet.class);
-	    Validator validator = ValidatorBuilder
-	              .create()
-	              .with(new SetterMustExistRule())
-	              .with(new GetterMustExistRule())
-	              .with(new SetterTester())
-	              .with(new GetterTester())
-	              .build();
-	      validator.validate(pojoclass);
+		PojoClass pojoclass = PojoClassFactory.getPojoClass(Box.class);
+		Validator validator = ValidatorBuilder.create().with(new SetterMustExistRule()).with(new GetterMustExistRule())
+				.with(new SetterTester()).with(new GetterTester()).build();
+		validator.validate(pojoclass);
 	}
-	//@formatter:on
+
 }

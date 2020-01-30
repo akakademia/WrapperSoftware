@@ -30,7 +30,7 @@ public class GlassyProduct {
 		return widthInCentimetre;
 	}
 
-	public void setWidthInCentimetre(int widthInCentimetre) {
+	public void setWidthInCentimetre(double widthInCentimetre) {
 		this.widthInCentimetre = widthInCentimetre;
 	}
 
@@ -38,7 +38,7 @@ public class GlassyProduct {
 		return heightInCentimetre;
 	}
 
-	public void setHeightInCentimetre(int heightInCentimetre) {
+	public void setHeightInCentimetre(double heightInCentimetre) {
 		this.heightInCentimetre = heightInCentimetre;
 	}
 

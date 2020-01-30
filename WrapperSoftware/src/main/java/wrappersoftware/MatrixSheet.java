@@ -16,20 +16,20 @@ public class MatrixSheet {
 		this.price = price;
 	}
 
-	public double getWidthOfOneMatrix() {
+	public double getWidthOfOneMatrixInCentimetre() {
 		return widthOfOneMatrixInCentimetre;
 	}
 
-	public void setWidthOfOneMatrix(int widthOfOneMatrix) {
-		this.widthOfOneMatrixInCentimetre = widthOfOneMatrix;
+	public void setWidthOfOneMatrixInCentimetre(double widthOfOneMatrixInCentimetre) {
+		this.widthOfOneMatrixInCentimetre = widthOfOneMatrixInCentimetre;
 	}
 
-	public double getLengthOfOneMatrix() {
+	public double getLengthOfOneMatrixInCentimetre() {
 		return lengthOfOneMatrixInCentimetre;
 	}
 
-	public void setLengthOfOneMatrix(int lengthOfOneMatrix) {
-		this.lengthOfOneMatrixInCentimetre = lengthOfOneMatrix;
+	public void setLengthOfOneMatrixInCentimetre(double lengthOfOneMatrixInCentimetre) {
+		this.lengthOfOneMatrixInCentimetre = lengthOfOneMatrixInCentimetre;
 	}
 
 	public int getPiece() {
