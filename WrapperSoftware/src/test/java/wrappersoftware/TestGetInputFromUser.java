@@ -45,10 +45,10 @@ class TestGetInputFromUser {
 	}
 
 	@Test
-	@DisplayName("getPasswordFromUser() tesztelése")
-	public void testGetPasswordFromUser() {
+	@DisplayName("getStringInputFromUser() tesztelése")
+	public void testGetStringInputFromUser() {
 		makeFakeStringInput();
-		assertEquals("alma", input1.getPasswordFromUser());
+		assertEquals("alma", input1.getStringInputFromUser("üzenet"));
 	}
 
 	@Test
