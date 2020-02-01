@@ -41,7 +41,7 @@ public class Order {
 					builder.append(" - ");
 					builder.append(products.get(i)
 							.getAmountInOrder());
-					builder.append("db.");
+					builder.append(" db.");
 					builder.append(String.format("%n"));
 				}
 			}

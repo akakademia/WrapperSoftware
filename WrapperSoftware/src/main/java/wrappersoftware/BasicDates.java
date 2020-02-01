@@ -133,7 +133,7 @@ public class BasicDates {
 
 	private void setCardboards(int productID, Scanner scan) {
 		System.out.println();
-		int lowestValue = 0;
+		int lowestValue = 1;
 		int highestValue = 200;
 		double lowestDoubleValue = 0.01;
 		double highestDoubleValue = 10.0;
@@ -151,11 +151,11 @@ public class BasicDates {
 		double thickness = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
 		highestDoubleValue = 100.0;
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton teherbírásást kg-ban ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton teherbírását kg-ban ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
 		double carryingCapacity = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
 
-		lowestDoubleValue = 0.0;
-		highestDoubleValue = 1000000.0;
+		lowestValue = 0;
+		highestValue = 1000000;
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
 		
