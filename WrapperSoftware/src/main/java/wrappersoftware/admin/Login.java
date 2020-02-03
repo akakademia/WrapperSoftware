@@ -17,7 +17,7 @@ public class Login {
 	public Login(Scanner scan) {
 		try {
 			loadAdminPasswordFromConfigFile();
-			passwordGivenByUser = new GetInputFromUser(scan).getStringInputFromUser("Kérem, adja meg jelszót: ");
+			passwordGivenByUser = new GetInputFromUser(scan).getStringInputFromUser("Jelszó: ");
 			setIsPasswordCorrect();
 		} catch (Exception e) {
 			System.out.println("Hiba történt: " + e.getMessage());
