@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import wrappersoftware.login.Login;
+import wrappersoftware.admin.Login;
 
 class TestLogin {
 	private Login login1;

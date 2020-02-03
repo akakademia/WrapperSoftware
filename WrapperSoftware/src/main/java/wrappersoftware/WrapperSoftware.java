@@ -2,7 +2,7 @@ package wrappersoftware;
 
 import java.util.Scanner;
 
-import wrappersoftware.login.Login;
+import wrappersoftware.admin.Login;
 
 public class WrapperSoftware {
 
