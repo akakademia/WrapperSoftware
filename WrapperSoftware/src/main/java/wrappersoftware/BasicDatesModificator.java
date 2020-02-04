@@ -23,7 +23,7 @@ public class BasicDatesModificator {
 				continue;
 			}
 			if (menuPoint==1) {
-				new PasswordChanger(scanner).initPasswordChanger(scanner);
+				new PasswordChanger(scanner).initPasswordChanger();
 				continue;
 			}
 			

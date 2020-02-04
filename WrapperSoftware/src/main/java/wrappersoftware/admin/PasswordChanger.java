@@ -22,13 +22,13 @@ public class PasswordChanger {
 		return isNewPasswordStored;
 	}
 
-	public void initPasswordChanger(Scanner scan) {
+	public void initPasswordChanger() {
 		System.out.println("Jelszó változtatáshoz ellenőrizni kell a jogosultságok!");
 		System.out.println();
 
 		if (isAdminVerifiedByLogin()) {
 			printOutRulesToChangePassword();
-			setNewPassword(scan);
+			setNewPassword();
 
 			if (isNewPasswordValid()) {
 				storeNewPasswordToConfigFile();
@@ -38,7 +38,7 @@ public class PasswordChanger {
 		}
 	}
 
-	private void setNewPassword(Scanner scan) {
+	private void setNewPassword() {
 		this.newPassword = new GetInputFromUser(scan).getStringInputFromUser("Új jelszó: ");
 	}
 
@@ -64,7 +64,7 @@ public class PasswordChanger {
 			FileOutputStream fos = new FileOutputStream(configFile);
 			Properties propConfig = new Properties();
 			propConfig.setProperty("admin_password", newPassword);
-			propConfig.storeToXML(fos, "Jelszó módosítása");
+			propConfig.storeToXML(fos, null);
 
 			System.out.println();
 			System.out.println("Jelszó módosítva!");
