@@ -20,7 +20,7 @@ public enum MenuType {
 		case ENTER:
 			return new String[] { "Felhasználó", "Adminisztrátor" };
 		case ADMIN:
-			return new String[] { "Tovább számításhoz", "Adatmódosítás" };
+			return new String[] { "Tovább számításhoz", "Jelszó modosítása", "Adatmódosítás" };
 		case CATEGORIES_FOR_DATE_CHANGE:
 			return new String[] { "Vissza az adatmódosítási menübe" };
 		case PRODUCTS_LIST_FOR_DATE_CHANGE:

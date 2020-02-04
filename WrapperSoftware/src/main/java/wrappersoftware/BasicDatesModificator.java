@@ -2,6 +2,8 @@ package wrappersoftware;
 
 import java.util.Scanner;
 
+import wrappersoftware.admin.PasswordChanger;
+
 public class BasicDatesModificator {
 
 	public void modificationOfDates(BasicDates basicDates, Scanner scanner) {
@@ -20,6 +22,11 @@ public class BasicDatesModificator {
 			if (menuPoint == 0) {
 				continue;
 			}
+			if (menuPoint==1) {
+				new PasswordChanger(scanner).initPasswordChanger(scanner);
+				continue;
+			}
+			
 			categoryID = chooseCategory(basicDates, scanner);
 			if (categoryID < 0) {
 				continue;
