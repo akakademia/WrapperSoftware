@@ -26,8 +26,9 @@ public class Order {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-	
-	public void printOrder() {
+
+	@Override
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Megrendelés tartalma: ");
 		builder.append(String.format("%n"));
@@ -50,8 +51,7 @@ public class Order {
 		builder.append("Kedvezmény mértéke: ");
 		builder.append(discount);
 		builder.append("%");
-		
-		System.out.println(builder);
+		return builder.toString();
 	}
 
 }

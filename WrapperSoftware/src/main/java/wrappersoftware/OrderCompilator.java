@@ -8,7 +8,8 @@ public class OrderCompilator {
 		int menuPoint = -1;
 
 		while (menuPoint != 3) {
-			order.printOrder();
+			System.out.println(order);
+			;
 			System.out.println();
 
 			Menu menu = new Menu(MenuType.ORDER);
@@ -45,7 +46,8 @@ public class OrderCompilator {
 			}
 		}
 		System.out.println("Megrendelés össze van állítva.");
-		order.printOrder();
+		System.out.println(order);
+		;
 		System.out.println();
 	}
 
@@ -85,7 +87,7 @@ public class OrderCompilator {
 			order.getProducts()
 					.remove(indexInOrder);
 			order.getProducts()
-					.trimToSize(); 
+					.trimToSize();
 		} else {
 			order.getProducts()
 					.get(indexInOrder)
@@ -105,7 +107,7 @@ public class OrderCompilator {
 							.getAmountInOrder()
 					+ " db.";
 		}
-		
+
 		return list;
 	}
 
