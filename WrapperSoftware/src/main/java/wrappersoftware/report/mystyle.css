@@ -1,0 +1,95 @@
+body {
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: grey;
+}
+
+h1 {
+	font-family: Sans-serif;
+	color: #fff;
+	text-shadow: #000 0px 0px 5px;
+	font-size: 25px;
+	letter-spacing: 3px;
+	text-align: center;
+}
+
+#continer {
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	width: 800px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	background-color: MediumSeaGreen;
+	text-align: center;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#header {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-top:20px;
+	background-color: none;
+	text-align: center;
+	color : white;
+	border-radius: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 8px;
+}
+
+#content {
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+	padding-top:40px;
+	background-color: white;
+	text-align: center;
+	border-radius: 20px;
+}
+
+p{
+	font-family: Arial;
+	font-style: italic;
+	font-size: 20px;
+	text-align: left;
+	padding-left: 10px;
+	border-radius: 10px;
+	border-left: 10px solid Tomato;
+}
+
+table{
+	background: none;
+	min-width: 700px;
+	border-collapse: collapse;
+}
+
+tr:hover {
+	background-color: Tomato;
+		
+	}
+	
+th {
+	text-align: right;
+	background-color: orange;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+td {
+	text-align: right;
+	background-color: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: black;
+	border-radius: 15px;
+}

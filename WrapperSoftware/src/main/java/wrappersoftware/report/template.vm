@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="hu-HU">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>$title</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+<div id="continer">
+<div id="header">
+<h1>$header</h1>
+<div>
+$img
+</div>
+</div>
+<div id="content">
+<p>$table_name1</p>
+<table>
+<tr>
+#foreach($item in $table1_header)
+<th>$item</th>
+#end
+</tr>
+#foreach($table1_content_row in $table1_content)
+<tr>
+#foreach($table1_content_row_item in $table1_content_row)
+<td>$table1_content_row_item</td>
+#end
+</tr>
+#end
+</table>
+<p>$table_name2</p>
+<table>
+<tr>
+#foreach($item in $table2_header)
+<th>$item</th>
+#end
+</tr>
+#foreach($table2_content_row in $table2_content)
+<tr>
+#foreach($table2_content_row_item in $table2_content_row)
+<td>$table2_content_row_item</td>
+#end
+</tr>
+#end
+</table>
+<p>$table_name3</p>
+<table>
+<tr>
+#foreach($item in $table3_header)
+<th>$item</th>
+#end
+</tr>
+#foreach($table3_content_row in $table3_content)
+<tr>
+#foreach($table3_content_row_item in $table3_content_row)
+<td>$table3_content_row_item</td>
+#end
+</tr>
+#end
+</table>
+</div>
+</div>
+</body> 
+</html>
