@@ -30,27 +30,21 @@ public class Order {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Megrendelés tartalma: ");
-		builder.append(String.format("%n"));
+		builder.append(String.format("%n")).append("Megrendelés tartalma: ").append(String.format("%n"));
+		
 		if (products.isEmpty()) {
 			builder.append("üres.");
 		} else {
 			for (int i = 0; i < products.size(); i++) {
 				if (products.get(i) != null) {
-					builder.append(products.get(i)
-							.toString());
-					builder.append(" - ");
-					builder.append(products.get(i)
-							.getAmountInOrder());
-					builder.append(" db.");
-					builder.append(String.format("%n"));
+					builder.append(products.get(i)).append(" - ").append(products.get(i).getAmountInOrder());
+					builder.append(" db.").append(String.format("%n"));
 				}
 			}
 		}
-		builder.append(String.format("%n"));
-		builder.append("Kedvezmény mértéke: ");
-		builder.append(discount);
-		builder.append("%");
+		
+		builder.append(String.format("%n")).append("Kedvezmény mértéke: ").append(discount).append("%");
+		
 		return builder.toString();
 	}
 

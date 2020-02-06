@@ -42,5 +42,12 @@ class TestOrder {
         validator.validate(pojoclass);
     }
     //@formatter:on
+    
+    @Test
+	@DisplayName("toString tesztelése")
+	public void testToString() {
+    
+		assertTrue(order.toString().contains("Megrendelés tartalma: "));
+	}
 
 }

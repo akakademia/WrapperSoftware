@@ -9,7 +9,7 @@ public class OrderCompilator {
 
 		while (menuPoint != 3) {
 			System.out.println(order);
-			;
+			
 			System.out.println();
 
 			Menu menu = new Menu(MenuType.ORDER);
@@ -23,8 +23,7 @@ public class OrderCompilator {
 				continue;
 			}
 			if (menuPoint == 1) {
-				if (order.getProducts()
-						.isEmpty()) {
+				if (order.getProducts().isEmpty()) {
 					System.out.println("Figyelem! A megrendelés üres!");
 				} else {
 					chooseAndRemoveProduct(basicDates, order, scanner);
