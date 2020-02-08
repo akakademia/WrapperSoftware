@@ -34,5 +34,7 @@ class TestBox {
 				.with(new SetterTester()).with(new GetterTester()).build();
 		validator.validate(pojoclass);
 	}
-
+	//van itt 2 db nem tesztelt metódus...kell-e tesztelni az kérdéses.
+	
+	
 }

@@ -25,18 +25,7 @@ public class TestPattern {
         pattern2 = new Pattern(100, 200);
     }
     
-    @Test
-    @DisplayName("calculateWidthOfThePaperFromBoxSize tesztelése")
-    public void TestCalculateWidthOfThePaperFromBoxSize(){
-        assertEquals(500, pattern1.calculateWidthOfThePaperFromBoxSize(100, 200));
-    }
-    
-    @Test
-    @DisplayName("calculateLengthOfThePaperFromBoxSize tesztelése")
-    public void TestCalculateLengthOfThePaperFromBoxSize(){
-        assertEquals(605, pattern1.calculateLengthOfThePaperFromBoxSize(100, 200));
-    }
-    
+       
     //@formatter:off
     @Test
     @DisplayName("getter és setter tesztelése")
