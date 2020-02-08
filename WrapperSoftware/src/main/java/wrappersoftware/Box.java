@@ -39,4 +39,11 @@ public class Box {
 		this.heigth = heigth;
 	}
 
+	public int calculateWidthOfThePaperFromBoxSize(int width, int length) {
+		return 2 * (width + length) + 50; // 50mm to the edge for glue 
+	}
+
+	public int calculateLengthOfThePaperFromBoxSize(int length, int heigth) {
+		return length + heigth; 
+	}
 }

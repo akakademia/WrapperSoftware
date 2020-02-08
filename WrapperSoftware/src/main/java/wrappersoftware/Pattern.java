@@ -29,11 +29,5 @@ public class Pattern {
 		this.length = length;
 	}
 
-	public int calculateWidthOfThePaperFromBoxSize(int widthOfTheBox, int heigthOfTheBox) {
-		return 2 * heigthOfTheBox + widthOfTheBox;
-	}
 
-	public int calculateLengthOfThePaperFromBoxSize(int lengthOfTheBox, int heigthOfTheBox) {
-		return 2 * heigthOfTheBox + 2 * lengthOfTheBox + 5;
-	}
 }
