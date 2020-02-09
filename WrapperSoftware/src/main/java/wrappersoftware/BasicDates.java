@@ -10,38 +10,38 @@ public class BasicDates {
 	private BubbleWrap bubbleWrap;
 
 	{
-		glassyProducts = new GlassyProduct[] {
-				new GlassyProduct("Csatos", 10.6, 16.0, 0.77, 1000),
-				new GlassyProduct("Csatos", 12.5, 21.6, 1.44, 2000),
-				new GlassyProduct("Hatszögletes díszüveg", 5.7, 5.5, 0.1, 105),
-				new GlassyProduct("Hatszögletes díszüveg", 10.4, 11.0, 0.2, 210),
-				new GlassyProduct("Hatszögletes díszüveg", 15.2, 16.5, 0.3, 305),
-				new GlassyProduct("Kerek díszüveg", 4.0, 7.0, 0.07, 40),
-				new GlassyProduct("Kerek díszüveg", 5.0, 7.0, 0.09, 50),
-				new GlassyProduct("Kerek díszüveg", 6.0, 8.0, 0.1, 100),
-				new GlassyProduct("Kerek díszüveg", 11.0, 9.0, 0.2, 200),
-				new GlassyProduct("Caviar üveg", 6.0, 8.0, 0.1, 100),
-				new GlassyProduct("Caviar üveg", 12.0, 15.0, 0.21, 210)
+		glassyProducts = new GlassyProduct[] { 
+				new GlassyProduct("Csatos", 106, 160, 1770, 1000, 300), 
+				new GlassyProduct("Csatos", 125, 216, 3440, 2000, 400),
+				new GlassyProduct("Hatszögletes díszüveg", 57, 55, 205, 105, 160), 
+				new GlassyProduct("Hatszögletes díszüveg", 104, 110, 410, 210, 170),
+				new GlassyProduct("Hatszögletes díszüveg", 152, 165, 605, 305, 190), 
+				new GlassyProduct("Kerek díszüveg", 40, 70, 110, 40, 200),
+				new GlassyProduct("Kerek díszüveg", 50, 70, 140, 50, 300), 
+				new GlassyProduct("Kerek díszüveg", 60, 80, 200, 100, 400), 
+				new GlassyProduct("Kerek díszüveg", 110, 90, 400, 200, 500),
+				new GlassyProduct("Caviar üveg", 60, 80, 200, 100, 200), 
+				new GlassyProduct("Caviar üveg", 120, 150, 420, 210, 300) 
 				};
 
-		cardboards = new Cardboard[] {
-				new Cardboard("3 rétegű 'E'-hullám", 48, 68, 0.15, 5.0, 20),
-				new Cardboard("3 rétegű 'B'-hullám", 48, 68, 0.3, 10.0, 30),
-				new Cardboard("3 rétegű 'C'-hullám", 48, 68, 0.4, 15.0, 40),
-				new Cardboard("5 rétegű 'BE'-hullám", 48, 68, 0.35, 20.0, 50),
-				new Cardboard("5 rétegű 'BC'-hullám", 48, 68, 0.67, 30.0, 60),
-				new Cardboard("5 rétegű 'AC'-hullám", 48, 68, 0.87, 40.0, 70),
-				new Cardboard("7 rétegű 'AAC'-hullám", 48, 68, 1.38, 50.0, 110)
+		cardboards = new Cardboard[] { 
+				new Cardboard("3 rétegű 'E'-hullám", 480, 680, 0.15, 5000, 20), 
+				new Cardboard("3 rétegű 'B'-hullám", 480, 680, 0.3, 10000, 30),
+				new Cardboard("3 rétegű 'C'-hullám", 480, 680, 0.4, 15000, 40), 
+				new Cardboard("5 rétegű 'BE'-hullám", 480, 680, 0.35, 20000, 50),
+				new Cardboard("5 rétegű 'BC'-hullám", 480, 680, 0.67, 30000, 60), 
+				new Cardboard("5 rétegű 'AC'-hullám", 480, 680, 0.87, 40000, 70),
+				new Cardboard("7 rétegű 'AAC'-hullám", 480, 680, 1.38, 50000, 110) 
 				};
 
-		matrixSheets = new MatrixSheet[] {
-				new MatrixSheet("Kicsi", 3.8, 6.3, 21, 450),
-				new MatrixSheet("Közepes", 7.4, 10.5, 21, 750),
-				new MatrixSheet("Nagy", 11.0, 12.0, 21, 950),
-				new MatrixSheet("Extra nagy", 5.0, 20.0, 21, 1120)
+		matrixSheets = new MatrixSheet[] { 
+				new MatrixSheet("Kicsi", 38, 63, 21, 450), 
+				new MatrixSheet("Közepes", 74, 105, 21, 750), 
+				new MatrixSheet("Nagy", 110, 120, 21, 950),
+				new MatrixSheet("Extra nagy", 50, 200, 21, 1120) 
 				};
 
-		bubbleWrap = new BubbleWrap("Airplus", 50, 50, 10.0, 2.0, 250);
+		bubbleWrap = new BubbleWrap("Airplus", 500, 500, 100, 20, 250);
 	}
 
 	public GlassyProduct[] getGlassyProducts() {
@@ -122,63 +122,47 @@ public class BasicDates {
 
 	private void setGlassyProducts(int productID, Scanner scan) {
 		System.out.println();
-		double lowestValue = 1.0;
-		double highestValue = 20.0;
+		int lowestValue = 20;
+		int highestValue = 300;
 		GetInputFromUser getNumber = new GetInputFromUser(scan);
 
 		String name = getNumber.getStringInputFromUser("Kérem, adja meg a termék nevét: ");
+		glassyProducts[productID].setName(name);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg szélességét cm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
-		double widthInCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg magasságát mm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int height = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		glassyProducts[productID].setHeight(height);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg magasságát cm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
-		double heightInCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
-		
-		highestValue = 50.0;
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg súlyát kg-ban ami " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
-		double weightInKilogram = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg szélességét mm-ben melynek mérete " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int width = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		glassyProducts[productID].setWidth(width);
 
-		highestValue = 3000.0;
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg űrtartalmát ml-ben ami " + lowestValue + " és " + highestValue + " közötti egész vagy tört szám lehet.: ");
-		double volumeInCubicCentimetre = getNumber.getValidDoubleFromUser(lowestValue, highestValue);
+		int volume = 3 * width / 2 * width / 2 * height / 1000;
+		glassyProducts[productID].setVolume(volume);
 
-		glassyProducts[productID] = new GlassyProduct(name, widthInCentimetre, heightInCentimetre, weightInKilogram, volumeInCubicCentimetre);
+		int weight = (int) (volume * 1.5);
+		glassyProducts[productID].setWeight(weight);
+
 		System.out.println("Ezek a modosított termék adatai: ");
-		System.out.println(glassyProducts[productID].toString());
+		System.out.println(glassyProducts[productID]);
 		System.out.println();
 	}
 
 	private void setCardboards(int productID, Scanner scan) {
 		System.out.println();
-		int lowestValue = 1;
-		int highestValue = 200;
-		double lowestDoubleValue = 0.01;
-		double highestDoubleValue = 10.0;
+		int lowestValue = 0;
+		int highestValue = 2000;
 		GetInputFromUser getNumber = new GetInputFromUser(scan);
 
 		String name = getNumber.getStringInputFromUser("Kérem, adja meg a termék nevét: ");
+		cardboards[productID].setName(name);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton szélességét cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet: ");
-		int width = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton hosszúságát cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet: ");
-		int length = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double thickness = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-
-		highestDoubleValue = 100.0;
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton teherbírását kg-ban ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double carryingCapacity = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-
-		lowestValue = 0;
-		highestValue = 1000000;
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a dekorkarton árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		
-		cardboards[productID] = new Cardboard(name, width, length, thickness, carryingCapacity, price);
+		cardboards[productID].setPrice(price);
+
 		System.out.println("Ezek a modosított termék adatai: ");
-		System.out.println(cardboards[productID].toString());
+		System.out.println(cardboards[productID]);
 		System.out.println();
 	}
 
@@ -186,28 +170,30 @@ public class BasicDates {
 		System.out.println();
 		int lowestValue = 1;
 		int highestValue = 200;
-		double lowestDoubleValue = 0.01;
-		double highestDoubleValue = 50.0;
 		GetInputFromUser getNumber = new GetInputFromUser(scan);
 
 		String name = getNumber.getStringInputFromUser("Kérem, adja meg a termék nevét: ");
+		matrixSheets[productID].setName(name);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica szélességét cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double widthOfOneMatrixInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica szélességét mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int widthOfOneMatrix = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		matrixSheets[productID].setWidthOfOneMatrix(widthOfOneMatrix);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica hosszúságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double lengthOfOneMatrixInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matrica hosszúságát mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int lengthOfOneMatrix = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		matrixSheets[productID].setLengthOfOneMatrix(lengthOfOneMatrix);
 
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a matricák darabszámát egy íven ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
-		int piece = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		
+		int pieceInSheet = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		matrixSheets[productID].setPieceInSheet(pieceInSheet);
+
 		highestValue = 10000;
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az egy matricaív árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
-		
-		matrixSheets[productID] = new MatrixSheet(name, widthOfOneMatrixInCentimetre, lengthOfOneMatrixInCentimetre, piece, price);
+		matrixSheets[productID].setPrice(price);
+
 		System.out.println("Ezek a modosított termék adatai: ");
-		System.out.println(matrixSheets[productID].toString());
+		System.out.println(matrixSheets[productID]);
 		System.out.println();
 	}
 
@@ -215,36 +201,37 @@ public class BasicDates {
 		System.out.println();
 		int lowestValue = 1;
 		int highestValue = 2000;
-		double lowestDoubleValue = 0.1;
-		double highestDoubleValue = 20.0;
 		GetInputFromUser getNumber = new GetInputFromUser(scan);
 
 		String name = getNumber.getStringInputFromUser("Kérem, adja meg a termék nevét: ");
+		bubbleWrap.setName(name);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap szélességét cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
-		int widthInCentimetre = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap szélességét mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int width = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		bubbleWrap.setWidth(width);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap hosszúságát cm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
-		int lengthInCentimetre = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap hosszúságát mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int length = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		bubbleWrap.setLength(length);
 
-		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap vastagságát cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double thicknessInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
-
-		lowestDoubleValue = 0;
-		highestDoubleValue = thicknessInCentimetre - 0.1;
-		getNumber = new GetInputFromUser(scan,
-				"Kérem, adja meg a térkitöltő lap zsugorodási mértékét cm-ben ami " + lowestDoubleValue + " és " + highestDoubleValue + " közötti tört vagy egész szám lehet.: ");
-		double retractionInCentimetre = getNumber.getValidDoubleFromUser(lowestDoubleValue, highestDoubleValue);
+		highestValue = 200;
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap vastagságát mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int thickness = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		bubbleWrap.setThickness(thickness);
 
 		lowestValue = 0;
-		highestValue = 100000;
+		highestValue = thickness - 1;
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap zsugorodási mértékét mm-ben ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int retraction = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		bubbleWrap.setRetraction(retraction);
 
+		highestValue = 100000;
 		getNumber = new GetInputFromUser(scan, "Kérem, adja meg a térkitöltő lap árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
 		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		bubbleWrap.setPrice(price);
 
-		bubbleWrap = new BubbleWrap(name, widthInCentimetre, lengthInCentimetre, thicknessInCentimetre, retractionInCentimetre, price);
 		System.out.println("Ezek a módosított termék adatai: ");
-		System.out.println(bubbleWrap.toString());
+		System.out.println(bubbleWrap);
 		System.out.println();
 	}
 

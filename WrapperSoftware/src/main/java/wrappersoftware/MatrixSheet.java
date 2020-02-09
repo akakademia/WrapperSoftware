@@ -2,49 +2,22 @@ package wrappersoftware;
 
 public class MatrixSheet {
 
+	/**
+	 * @widthOfOneMatrix is in millimeter
+	 * @lengthOfOneMatrix is in millimeter
+	 */
+
 	private String name;
-	private double widthOfOneMatrixInCentimetre;
-	private double lengthOfOneMatrixInCentimetre;
-	private int piece;
+	private int widthOfOneMatrix;
+	private int lengthOfOneMatrix;
+	private int pieceInSheet;
 	private int price;
 
-	public MatrixSheet(String name, double widthOfOneMatrixInCentimetre, double lengthOfOneMatrixInCentimetre, int piece, int price) {
+	public MatrixSheet(String name, int widthOfOneMatrix, int lengthOfOneMatrix, int pieceInSheet, int price) {
 		this.name = name;
-		this.widthOfOneMatrixInCentimetre = widthOfOneMatrixInCentimetre;
-		this.lengthOfOneMatrixInCentimetre = lengthOfOneMatrixInCentimetre;
-		this.piece = piece;
-		this.price = price;
-	}
-
-	public double getWidthOfOneMatrixInCentimetre() {
-		return widthOfOneMatrixInCentimetre;
-	}
-
-	public void setWidthOfOneMatrixInCentimetre(double widthOfOneMatrixInCentimetre) {
-		this.widthOfOneMatrixInCentimetre = widthOfOneMatrixInCentimetre;
-	}
-
-	public double getLengthOfOneMatrixInCentimetre() {
-		return lengthOfOneMatrixInCentimetre;
-	}
-
-	public void setLengthOfOneMatrixInCentimetre(double lengthOfOneMatrixInCentimetre) {
-		this.lengthOfOneMatrixInCentimetre = lengthOfOneMatrixInCentimetre;
-	}
-
-	public int getPiece() {
-		return piece;
-	}
-
-	public void setPiece(int piece) {
-		this.piece = piece;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
+		this.widthOfOneMatrix = widthOfOneMatrix;
+		this.lengthOfOneMatrix = lengthOfOneMatrix;
+		this.pieceInSheet = pieceInSheet;
 		this.price = price;
 	}
 
@@ -56,17 +29,49 @@ public class MatrixSheet {
 		this.name = name;
 	}
 
+	public int getWidthOfOneMatrix() {
+		return widthOfOneMatrix;
+	}
+
+	public void setWidthOfOneMatrix(int widthOfOneMatrix) {
+		this.widthOfOneMatrix = widthOfOneMatrix;
+	}
+
+	public int getLengthOfOneMatrix() {
+		return lengthOfOneMatrix;
+	}
+
+	public void setLengthOfOneMatrix(int lengthOfOneMatrix) {
+		this.lengthOfOneMatrix = lengthOfOneMatrix;
+	}
+
+	public int getPieceInSheet() {
+		return pieceInSheet;
+	}
+
+	public void setPieceInSheet(int pieceInSheet) {
+		this.pieceInSheet = pieceInSheet;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Matrica: ");
 		builder.append(name);
 		builder.append(", szélessége: ");
-		builder.append(widthOfOneMatrixInCentimetre);
-		builder.append(" cm, hosszúsága: ");
-		builder.append(lengthOfOneMatrixInCentimetre);
-		builder.append(" cm, ");
-		builder.append(piece);
+		builder.append(widthOfOneMatrix);
+		builder.append(" mm, hosszúsága: ");
+		builder.append(lengthOfOneMatrix);
+		builder.append(" mm, ");
+		builder.append(pieceInSheet);
 		builder.append(" darab/1 íven");
 		builder.append(", ára: ");
 		builder.append(price);

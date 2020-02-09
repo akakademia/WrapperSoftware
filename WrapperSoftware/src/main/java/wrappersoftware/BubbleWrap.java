@@ -2,28 +2,27 @@ package wrappersoftware;
 
 public class BubbleWrap {
 
+	/**
+	 * @width is in millimeter
+	 * @length is in millimeter
+	 * @thickness is in millimeter
+	 * @retraction is in millimeter
+	 */
+
 	private String name;
-	private int widthInCentimetre;
-	private int lengthInCentimetre;
-	private double thicknessInCentimetre;
-	private double retractionInCentimetre;
+	private int width;
+	private int length;
+	private int thickness;
+	private int retraction;
 	private int price;
 
-	public BubbleWrap(String name, int widthInCentimetre, int lengthInCentimetre, double thicknessInCentimetre,double retractionInCentimetre, int price) {
+	public BubbleWrap(String name, int width, int length, int thickness, int retraction, int price) {
 		this.name = name;
-		this.widthInCentimetre = widthInCentimetre;
-		this.lengthInCentimetre = lengthInCentimetre;
-		this.thicknessInCentimetre = thicknessInCentimetre;
-		this.retractionInCentimetre=retractionInCentimetre;
+		this.width = width;
+		this.length = length;
+		this.thickness = thickness;
+		this.retraction = retraction;
 		this.price = price;
-	}
-
-	public double getThicknessInCentimetre() {
-		return thicknessInCentimetre;
-	}
-
-	public void setThicknessInCentimetre(double thicknessInCentimetre) {
-		this.thicknessInCentimetre = thicknessInCentimetre;
 	}
 
 	public String getName() {
@@ -34,20 +33,36 @@ public class BubbleWrap {
 		this.name = name;
 	}
 
-	public int getWidthInCentimetre() {
-		return widthInCentimetre;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setWidthInCentimetre(int widthInCentimetre) {
-		this.widthInCentimetre = widthInCentimetre;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
-	public int getLengthInCentimetre() {
-		return lengthInCentimetre;
+	public int getLength() {
+		return length;
 	}
 
-	public void setLengthInCentimetre(int lengthInCentimetre) {
-		this.lengthInCentimetre = lengthInCentimetre;
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public int getThickness() {
+		return thickness;
+	}
+
+	public void setThickness(int thickness) {
+		this.thickness = thickness;
+	}
+
+	public int getRetraction() {
+		return retraction;
+	}
+
+	public void setRetraction(int retraction) {
+		this.retraction = retraction;
 	}
 
 	public int getPrice() {
@@ -58,28 +73,20 @@ public class BubbleWrap {
 		this.price = price;
 	}
 
-	public double getRetractionInCentimetre() {
-		return retractionInCentimetre;
-	}
-
-	public void setRetractionInCentimetre(double retractionInCentimetre) {
-		this.retractionInCentimetre = retractionInCentimetre;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Térkitöltő: ");
 		builder.append(name);
 		builder.append(", szélessége: ");
-		builder.append(widthInCentimetre);
-		builder.append(" cm, hosszúsága: ");
-		builder.append(lengthInCentimetre);
-		builder.append(" cm, vastagsága: ");
-		builder.append(thicknessInCentimetre);
-		builder.append(" cm, zsugorodás mértéke: ");
-		builder.append(retractionInCentimetre);
-		builder.append(" cm, ára: ");
+		builder.append(width);
+		builder.append(" mm, hosszúsága: ");
+		builder.append(length);
+		builder.append(" mm, vastagsága: ");
+		builder.append(thickness);
+		builder.append(" mm, zsugorodás mértéke: ");
+		builder.append(retraction);
+		builder.append(" mm, ára: ");
 		builder.append(price);
 		builder.append(" Ft.");
 		return builder.toString();

@@ -2,20 +2,29 @@ package wrappersoftware;
 
 public class GlassyProduct {
 
+	/**
+	 * @width is in millimeter
+	 * @height is in millimeter
+	 * @weight is in gram
+	 * @volume is in milliliter
+	 */
+
 	private String name;
-	private double widthInCentimetre;
-	private double heightInCentimetre;
-	private double weightInKilogram;
-	private double volumeInCubicCentimetre;
+	private int width;
+	private int height;
+	private int weight;
+	private int volume;
 	private boolean isInBox;
 	private int amountInOrder;
+	private int price;
 
-	public GlassyProduct(String name, double widthInCentimetre, double heightInCentimetre, double weightInKilogram, double volumeInCubicCentimetre) {
+	public GlassyProduct(String name, int width, int height, int weight, int volume, int price) {
 		this.name = name;
-		this.widthInCentimetre = widthInCentimetre;
-		this.heightInCentimetre = heightInCentimetre;
-		this.weightInKilogram = weightInKilogram;
-		this.volumeInCubicCentimetre = volumeInCubicCentimetre;
+		this.width = width;
+		this.height = height;
+		this.weight = weight;
+		this.volume = volume;
+		this.price = price;
 	}
 
 	public String getName() {
@@ -26,36 +35,36 @@ public class GlassyProduct {
 		this.name = name;
 	}
 
-	public double getWidthInCentimetre() {
-		return widthInCentimetre;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setWidthInCentimetre(double widthInCentimetre) {
-		this.widthInCentimetre = widthInCentimetre;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
-	public double getHeightInCentimetre() {
-		return heightInCentimetre;
+	public int getHeight() {
+		return height;
 	}
 
-	public void setHeightInCentimetre(double heightInCentimetre) {
-		this.heightInCentimetre = heightInCentimetre;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
-	public double getWeightInKilogram() {
-		return weightInKilogram;
+	public int getWeight() {
+		return weight;
 	}
 
-	public void setWeightInKilogram(double weightInKilogram) {
-		this.weightInKilogram = weightInKilogram;
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 
-	public double getVolumeInCubicCentimetre() {
-		return volumeInCubicCentimetre;
+	public int getVolume() {
+		return volume;
 	}
 
-	public void setVolumeInCubicCentimetre(double volumeInCubicCentimetre) {
-		this.volumeInCubicCentimetre = volumeInCubicCentimetre;
+	public void setVolume(int volume) {
+		this.volume = volume;
 	}
 
 	public boolean isInBox() {
@@ -74,20 +83,30 @@ public class GlassyProduct {
 		this.amountInOrder = amountInOrder;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Üveges termék: ");
 		builder.append(name);
 		builder.append(", szélessége: ");
-		builder.append(widthInCentimetre);
-		builder.append(" cm, magassága: ");
-		builder.append(heightInCentimetre);
-		builder.append(" cm, súlya: ");
-		builder.append(weightInKilogram);
-		builder.append(" kg, űrtartalma: ");
-		builder.append(volumeInCubicCentimetre);
-		builder.append(" ml.");
+		builder.append(width);
+		builder.append(" mm, magassága: ");
+		builder.append(height);
+		builder.append(" mm, súlya: ");
+		builder.append(weight);
+		builder.append(" g, űrtartalma: ");
+		builder.append(volume);
+		builder.append(" ml, ára: ");
+		builder.append(price);
+		builder.append(" Ft.");
 		return builder.toString();
 	}
 
