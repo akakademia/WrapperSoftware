@@ -29,7 +29,7 @@ class TestPackOfGlasses {
 	    @Test
 	    @DisplayName("getter és setter tesztelése")
 	    public void testGetterSetter() {
-	        PojoClass pojoclass = PojoClassFactory.getPojoClass(Pattern.class);
+	        PojoClass pojoclass = PojoClassFactory.getPojoClass(PackOfGlasses.class);
 	        Validator validator = ValidatorBuilder
 	                .create()
 	                .with(new SetterMustExistRule())

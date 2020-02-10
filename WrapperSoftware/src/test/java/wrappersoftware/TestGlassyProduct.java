@@ -21,7 +21,7 @@ class TestGlassyProduct {
 	
 	@BeforeEach
 	public void init() {
-		glassyProduct = new GlassyProduct("csatos üvegek", 10.6, 16, 0.77, 1000);
+		glassyProduct = new GlassyProduct("név", 50, 100, 280, 1, 150);
 	}
 	
 	@Test

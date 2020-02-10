@@ -21,7 +21,7 @@ class TestMatrixSheet {
 
 	@BeforeEach
 	public void init() {
-		matrixSheet = new MatrixSheet("63 x 38 mm", 6.3, 3.8, 21, 450);
+		matrixSheet = new MatrixSheet("név", 100, 100, 21, 150);
 
 	}
 
