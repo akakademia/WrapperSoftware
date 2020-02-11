@@ -2,7 +2,7 @@ package wrappersoftware;
 
 public class PackWrappingCalculator {
 
-	private Box box1 = new Box(160, 155, 300);
+	private Box box1 = new Box(160, 155, 300); // is the highest and the widest
 	private Box box2 = new Box(190, 120, 250);
 	private Box box3 = new Box(250, 60, 180);
 	private Box box4 = new Box(0, 0, 0);
@@ -15,11 +15,9 @@ public class PackWrappingCalculator {
 		this.packOfGlasses = packOfGlasses;
 	}
 
-	
-	public int calculateWrappingFee() {  // need to add the sticker and airplus fee
+	public int calculateWrappingFee() { // need to add the sticker and airplus fee
 		return calculateCardboardPrice();
-		}
-
+	}
 
 	private int calculateCardboardPrice() {
 		if (packOfGlasses.getWeight() <= 5000) {
@@ -44,8 +42,13 @@ public class PackWrappingCalculator {
 	}
 
 	private boolean isPackFitsInTheBox(Box box) {
-		return (packOfGlasses.getWidth() <= box.getWidth() && packOfGlasses.getLength() <= box.getLength()
-				&& (packOfGlasses.getHeigth() + 80) <= box.getHeigth()); // 80mm to the airplus
+		return (packOfGlasses.getWidth() <= box.getWidth() && packOfGlasses.getLength() <= box.getLength() && (packOfGlasses.getHeigth() + 80) <= box.getHeigth()); // 80mm to the airplus
+	}
+
+	public Box[] getBoxesForCheck() {
+		Box[] biggestBoxes = { box1 };
+		biggestBoxes[0].setHeigth(box1.getHeigth() - 80); // '-80' is wrap thickness in pressed state
+		return biggestBoxes;
 	}
 
 }

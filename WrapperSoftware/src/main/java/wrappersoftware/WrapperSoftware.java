@@ -40,7 +40,13 @@ public class WrapperSoftware {
 		while (!isProgramEnd) {
 			Order order = new Order();
 			new OrderCompilator().setUpOrder(basicDates, order, scanner); // ez a megrendelés összeállítási rész
-
+			
+			
+			System.out.println();
+			Box[] boxesForCheck=new PackWrappingCalculator().getBoxesForCheck();
+			order.setProducts(order.getSortedProductsAbleToWrap(boxesForCheck));
+			System.out.println(order);
+			
 			System.out.println(); // ez a számolási rész
 			System.out.println("SZÁMÍTÁS....");
 			System.out.println("EREDMÉNY....");

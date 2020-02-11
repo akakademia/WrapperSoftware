@@ -128,8 +128,8 @@ public class OrderCompilator {
 	}
 
 	private void addProduct(Scanner scanner, Order order, BasicDates basicDates, int indexOfProductInBasicDates) {
-		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot (legalább 1): ");
-		int amountToAdd = getInput.getValidIntegerFromUser(1, 100);
+		GetInputFromUser getInput = new GetInputFromUser(scanner, "Kérem, adja meg darabszámot ( 1 és 1000 között ): ");
+		int amountToAdd = getInput.getValidIntegerFromUser(1, 1000);
 
 		GlassyProduct productToAdd = basicDates.getGlassyProducts()[indexOfProductInBasicDates];
 
