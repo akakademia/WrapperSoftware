@@ -13,7 +13,7 @@
 <div id="header">
 <h1>$header</h1>
 <div>
-$img
+$costumer_name
 </div>
 </div>
 <div id="content">

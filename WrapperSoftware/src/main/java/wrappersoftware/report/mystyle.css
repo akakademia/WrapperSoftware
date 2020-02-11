@@ -69,8 +69,9 @@ table{
 	border-collapse: collapse;
 }
 
-tr:hover {
+tr:hover td{
 	background-color: #F8B195;
+	color: white;
 }
 	
 th {
