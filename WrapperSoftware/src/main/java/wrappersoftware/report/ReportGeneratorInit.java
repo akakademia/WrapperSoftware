@@ -1,10 +1,6 @@
 package wrappersoftware.report;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -20,6 +16,7 @@ public class ReportGeneratorInit {
 		VelocityContext context = new VelocityContext();
 
 		// tesztadatok
+		String costumerName = "Interspar";
 		String[] table1Header = new String[] { "Termék típusa", "Szélessége", "Magassága", "Súlya", "Űrtartalma",
 				"Mennyiség" };
 		String[] table2Header = new String[] { "Méretei", "Hullámvastagsága", "Súlyhatár", "Mennyiség" };
@@ -37,7 +34,7 @@ public class ReportGeneratorInit {
 
 		// propertiek létrehozása
 		context.put("title", "A&K Packer Kft. - Wrapper Software (WS) rendelés összeállítva");
-		context.put("img", "");
+		context.put("costumer_name", costumerName);
 		context.put("header", "A&K Packer Kft. - Wrapper Software (WS)");
 		context.put("table_name1", "Megrendelés tartalma:");
 		context.put("table_name2", "Doboz: ");
@@ -51,6 +48,7 @@ public class ReportGeneratorInit {
 
 		StringWriter data = new StringWriter();
 		template.merge(context, data);
-		new FileMaker().writeOutDataToFile(data.toString());
+
+		new FileMaker().writeOutDataToFile(data.toString(), "src/main/java/wrappersoftware/report", costumerName);
 	}
 }

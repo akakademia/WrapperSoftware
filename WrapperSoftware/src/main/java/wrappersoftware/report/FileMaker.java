@@ -3,40 +3,16 @@ package wrappersoftware.report;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class FileMaker {
-	String path;
 
-	
-	public FileMaker() {
-		this.path = "src/main/java/wrappersoftware/report/index.html";
-	}
-	
-	public FileMaker(String path) {
-		this.path = path;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	
-	/***
-	 * 
-	 * @param data
-	 * Bemenő adatok String formátumban amiket file-ba ír a metódus, default construktor esetén default path-be
-	 * máskülönben a meghatározott elérési útra és file néven.
-	 */
-	public void writeOutDataToFile(String data) {
+	public void writeOutDataToFile(String data, String path, String costumerName) {
 		PrintWriter out;
 		try {
-			out = new PrintWriter(new File(path), "UTF-8");
+			out = new PrintWriter(new File(path + "/" + generateFileName(costumerName)), "UTF-8");
 			out.print(data);
 			out.close();
 		} catch (FileNotFoundException e) {
@@ -44,5 +20,18 @@ public class FileMaker {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public String generateDateAndTime() {
+		LocalDateTime myDateObj = LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String formattedDate = myDateObj.format(myFormatObj);
+
+		return formattedDate;
+	}
+
+	public String generateFileName(String costumerName) {
+
+		return generateDateAndTime() + "_" + costumerName.substring(0, 4) + ".html";
 	}
 }
