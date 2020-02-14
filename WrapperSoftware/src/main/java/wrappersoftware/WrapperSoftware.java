@@ -1,5 +1,6 @@
 package wrappersoftware;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import wrappersoftware.admin.Login;
@@ -40,13 +41,24 @@ public class WrapperSoftware {
 		while (!isProgramEnd) {
 			Order order = new Order();
 			new OrderCompilator().setUpOrder(basicDates, order, scanner); // ez a megrendelés összeállítási rész
-			
-			
+
 			System.out.println();
-			Box[] boxesForCheck=new PackWrappingCalculator().getBoxesForCheck();
-			order.setProducts(order.getSortedProductsAbleToWrap(boxesForCheck));
-			System.out.println(order);
 			
+			
+			Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck();
+			ArrayList<GlassyProduct> productsFitInBox = order.getSortedProductsAbleToWrap(boxesForCheck);
+			System.out.println("csomagolható, magasság szerint rendezett termékek:");
+			for (GlassyProduct glassyProduct : productsFitInBox) {
+				System.out.println(glassyProduct);
+			}
+			System.out.println();
+			ArrayList<GlassyProduct> productsNotPackable = order.getProductsDisableToPack(boxesForCheck);
+			System.out.println("túl nagy, nem csomagolható termékek:");
+			for (GlassyProduct glassyProduct : productsNotPackable) {
+				System.out.println(glassyProduct);
+			}
+			System.out.println();
+
 			System.out.println(); // ez a számolási rész
 			System.out.println("SZÁMÍTÁS....");
 			System.out.println("EREDMÉNY....");

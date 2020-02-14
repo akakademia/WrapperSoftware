@@ -32,6 +32,18 @@ public class Order {
 		sortByHeight(productsToWrap);
 		return productsToWrap;
 	}
+	
+	public ArrayList<GlassyProduct> getProductsDisableToPack(Box[]boxesForCheck){
+		ArrayList<GlassyProduct> notPackable = new ArrayList<GlassyProduct>();
+		for (int i = 0; i < products.size(); i++) {
+			if (!isProductSmallerThenBox(products.get(i), boxesForCheck)) {
+				notPackable.add(products.get(i));
+			}
+		}
+		return notPackable;
+	}
+
+
 
 	/**
 	 * The highest is array[0], the lowest is in the end of array

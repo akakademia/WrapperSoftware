@@ -142,6 +142,12 @@ public class BasicDates {
 
 		int weight = (int) (volume * 1.5);
 		glassyProducts[productID].setWeight(weight);
+		
+		lowestValue=0;
+		highestValue = 100000;
+		getNumber = new GetInputFromUser(scan, "Kérem, adja meg az üveg árát forintban ami " + lowestValue + " és " + highestValue + " közötti egész szám lehet.: ");
+		int price = getNumber.getValidIntegerFromUser(lowestValue, highestValue);
+		glassyProducts[productID].setPrice(price);
 
 		System.out.println("Ezek a modosított termék adatai: ");
 		System.out.println(glassyProducts[productID]);
