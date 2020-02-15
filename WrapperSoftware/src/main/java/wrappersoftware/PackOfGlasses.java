@@ -7,8 +7,11 @@ public class PackOfGlasses {
 	private int heigth;
 	private int weight;
 
+	
+	
 	public PackOfGlasses() {
 	}
+
 
 	public PackOfGlasses(int width, int length, int heigth, int weight) {
 		this.width = width;
@@ -17,6 +20,7 @@ public class PackOfGlasses {
 		this.weight = weight;
 
 	}
+
 
 	public int getWidth() {
 		return width;
@@ -49,5 +53,21 @@ public class PackOfGlasses {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PackOfGlasses [width=" + width + ", length=" + length + ", heigth=" + heigth + ", weight=" + weight
+				+ "]";
+	}
+
+	public void toEmptyPackOfGlasses () {
+		width =0;
+		length=0;
+		heigth=0;
+		weight=0;
+	}
+
+
 
 }
