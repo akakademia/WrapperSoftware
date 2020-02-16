@@ -1,6 +1,5 @@
 package wrappersoftware;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import wrappersoftware.admin.Login;
@@ -43,25 +42,28 @@ public class WrapperSoftware {
 			new OrderCompilator().setUpOrder(basicDates, order, scanner); // ez a megrendelés összeállítási rész
 
 			System.out.println();
-			
-			
-			Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck();
-			ArrayList<GlassyProduct> productsFitInBox = order.getSortedProductsAbleToWrap(boxesForCheck);
-			System.out.println("csomagolható, magasság szerint rendezett termékek:");
-			for (GlassyProduct glassyProduct : productsFitInBox) {
-				System.out.println(glassyProduct);
-			}
+
+			Results results = new Results(order);
+			results.printProductsNotPackable();
 			System.out.println();
-			ArrayList<GlassyProduct> productsNotPackable = order.getProductsDisableToPack(boxesForCheck);
-			System.out.println("túl nagy, nem csomagolható termékek:");
-			for (GlassyProduct glassyProduct : productsNotPackable) {
-				System.out.println(glassyProduct);
-			}
+			results.printProductsAbleToPack();
 			System.out.println();
 
-			System.out.println(); // ez a számolási rész
-			System.out.println("SZÁMÍTÁS....");
-			System.out.println("EREDMÉNY....");
+			System.out.format("%nAz üvegek csomagolásához szükséges anyagok:%n%n");
+			System.out.println("Dobozok száma: " + results.getNeedfulCardboard());
+			System.out.println("Térkitöltő: " + results.getNeedfulAirplus() + " db");
+			for (int i = 0; i < results.getNeedfulMatrixSheet().length; i++) {
+				System.out.println(results.getNeedfulMatrixSheet()[i].getName() + " matricából szükséges (ív): " + results.getNeedfulMatrixSheet()[i].calculateNeccesaryMatrixSheet());
+			}
+			System.out.println();
+			System.out.println("Ár-kalkuláció:");
+			System.out.println();
+			System.out.println("A dobozokhoz szükséges kartonok ára összesen: " + results.getNeedfulCardboardCost());
+			for (int i = 0; i < results.getNeedfulMatrixSheet().length; i++) {
+				System.out.println(results.getNeedfulMatrixSheet()[i].getName() + " matricák ára: " + results.getNeedfulMatrixSheet()[i].calculatePrice() + " Ft.");
+			}
+			System.out.println("Térkitöltő ára: " + results.getNeedfulAirplusCost() + " Ft.");
+			System.out.println("A csomagolás teljes költsége: " + results.getSumCostWithDiscont() + " Ft, " + order.getDiscount() + " %-os kedvezménnyel");
 			System.out.println();
 
 			menuPoint = -1;
