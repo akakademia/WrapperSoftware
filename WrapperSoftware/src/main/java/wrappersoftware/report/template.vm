@@ -12,19 +12,18 @@
 <div id="continer">
 <div id="header">
 <h1>$header</h1>
-<div>
-$costumer_name
-</div>
+<div>$costumer_name</div>
 </div>
 <div id="content">
-<p>$table_name1</p>
+
+<p>$content_of_order</p>
 <table>
 <tr>
-#foreach($item in $table1_header)
+#foreach($item in $products_header)
 <th>$item</th>
 #end
 </tr>
-#foreach($table1_content_row in $table1_content)
+#foreach($table1_content_row in $products_in_box)
 <tr>
 #foreach($table1_content_row_item in $table1_content_row)
 <td>$table1_content_row_item</td>
@@ -32,6 +31,25 @@ $costumer_name
 </tr>
 #end
 </table>
+
+#if ($products_not_packable.size() > 0)
+<p>$not_packable_header</p>
+<table>
+<tr>
+#foreach($item in $products_header)
+<th>$item</th>
+#end
+</tr>
+#foreach($table1_content_row in $products_not_packable)
+<tr>
+#foreach($table1_content_row_item in $table1_content_row)
+<td>$table1_content_row_item</td>
+#end
+</tr>
+#end
+</table>
+#end
+
 <p>$table_name2</p>
 <table>
 <tr>
@@ -39,14 +57,14 @@ $costumer_name
 <th>$item</th>
 #end
 </tr>
-#foreach($table2_content_row in $table2_content)
+
 <tr>
-#foreach($table2_content_row_item in $table2_content_row)
-<td>$table2_content_row_item</td>
+#foreach($item in $table2_content)
+<td>$item</td>
 #end
 </tr>
-#end
 </table>
+
 <p>$table_name3</p>
 <table>
 <tr>
@@ -54,14 +72,14 @@ $costumer_name
 <th>$item</th>
 #end
 </tr>
-#foreach($table3_content_row in $table3_content)
+
 <tr>
-#foreach($table3_content_row_item in $table3_content_row)
-<td>$table3_content_row_item</td>
+#foreach($item in $table3_content)
+<td>$item</td>
 #end
 </tr>
-#end
 </table>
+
 </div>
 </div>
 </body> 
