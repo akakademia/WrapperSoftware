@@ -7,6 +7,7 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
+import wrappersoftware.BasicDates;
 import wrappersoftware.GlassyProduct;
 import wrappersoftware.Order;
 import wrappersoftware.Results;
@@ -32,8 +33,9 @@ public class ReportGeneratorInit {
 		Order order = new Order();
 		order.setDiscount(10);
 		order.setProducts(products);
+		BasicDates basicDates=new BasicDates();
 
-		Results calculationResult = new Results(order);
+		Results calculationResult = new Results(order,basicDates);
 		ArrayList<GlassyProduct> productsInBox = calculationResult.getProductsFitInBox();
 		ArrayList<GlassyProduct> productsNotPackable = calculationResult.getProductsNotPackable();
 
@@ -70,17 +72,17 @@ public class ReportGeneratorInit {
 		String[] table3Header = new String[] { "Karton", "Matrica (kicsit)", "Matrica (nagy)", "Térkitöltő", "Összesen "+ order.getDiscount() +"% kedvezménnyel" };
 
 		String[] table2content = new String[] {
-				"" + calculationResult.getNeedfulCardboard() + " db",
+				"" + calculationResult.getNeedfulCardboards() + " db",
 				"" + calculationResult.getNeedfulAirplus() + " db",
-				"" + (calculationResult.getNeedfulMatrixSheet())[0].calculateNeccesaryMatrixSheet() + " db",
-				"" + (calculationResult.getNeedfulMatrixSheet())[1].calculateNeccesaryMatrixSheet() + " db"
+				"" + (calculationResult.getNeedfulMatrixSheets())[0].calculateNeccesaryMatrixSheet() + " db",
+				"" + (calculationResult.getNeedfulMatrixSheets())[1].calculateNeccesaryMatrixSheet() + " db"
 				};
 		
 		String[] table3content = new String[] {
-				"" + calculationResult.getNeedfulCardboardCost() + " Ft",
-				"" + calculationResult.getNeedfulMatrixSheet()[0].calculatePrice() + " Ft",
-				"" + calculationResult.getNeedfulMatrixSheet()[1].calculatePrice() + " Ft",
-				"" + calculationResult.getNeedfulAirplusCost() + " Ft",
+				"" + calculationResult.getCardboardsTotalCost() + " Ft",
+				"" + calculationResult.getNeedfulMatrixSheets()[0].calculatePrice() + " Ft",
+				"" + calculationResult.getNeedfulMatrixSheets()[1].calculatePrice() + " Ft",
+				"" + calculationResult.getAirplusTotalCost()+ " Ft",
 				"" + calculationResult.getSumCostWithDiscont() + " Ft"
 		};
 

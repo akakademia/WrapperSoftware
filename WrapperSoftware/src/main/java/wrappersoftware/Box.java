@@ -11,18 +11,14 @@ public class Box {
 	public Box() {
 	}
 
-	
-	
 	public Box(int width, int length, int heigth) {
 		this.width = width;
 		this.length = length;
 		this.heigth = heigth;
 	}
 
-
-
 	public Box(String name, int width, int length, int heigth) {
-		this.name=name;
+		this.name = name;
 		this.width = width;
 		this.length = length;
 		this.heigth = heigth;
@@ -60,7 +56,6 @@ public class Box {
 		this.heigth = heigth;
 	}
 
-	
 	public int getNumberOfNeccesaryBoxes() {
 		return numberOfNeccesaryBoxes;
 	}
@@ -70,19 +65,16 @@ public class Box {
 	}
 
 	public int calculateWidthOfThePaperFromBoxSize() {
-		return 2 * (width + length) + 50; // 50mm to the edge for glue 
+		return 2 * (width + length) + 50; // 50mm to the edge for glue
 	}
 
 	public int calculateLengthOfThePaperFromBoxSize() {
-		return length + heigth; 
+		return length + heigth;
 	}
-
-
-
 
 	@Override
 	public String toString() {
-		return "Box [name=" + name + ", width=" + width + ", length=" + length + ", heigth=" + heigth + "]";
+		return "Doboz [megnevezése=" + name + ", szélessége=" + width + ", hosszúsága=" + length + ", magassága=" + heigth + "]";
 	}
 
 	@Override
@@ -102,8 +94,8 @@ public class Box {
 			return false;
 		return true;
 	}
-	
-	public void addOneBox () {
+
+	public void addOneBox() {
 		numberOfNeccesaryBoxes++;
 	}
 }

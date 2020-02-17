@@ -4,31 +4,94 @@ import java.util.ArrayList;
 
 public class Results {
 
+	private BasicDates basicDates;
 	private ArrayList<GlassyProduct> productsFitInBox;
 	private ArrayList<GlassyProduct> productsNotPackable;
-	private int needfulCardboard;
-	private int needfulCardboardCost;
+	private ArrayList<Box> needfulBoxes = new ArrayList<>();
+	private int needfulCardboards;
+	private int cardboardsTotalCost;
 	private int needfulAirplus;
-	private int needfulAirplusCost;
-	private MatrixSheet[] needfulMatrixSheet;
-	private int needfulMatrixCost;
+	private int airplusTotalCost;
+	private MatrixSheet[] needfulMatrixSheets;
+	private int matrixSheetsTotalCost;
+	private int discount;
 	private int sumCostWithDiscont;
 
-	public Results(Order order) {
+	public Results(Order order, BasicDates basicDates) {
+		this.basicDates = basicDates;
 		setProductsFitInBox(order);
 		setProductsNotPackable(order);
 
 		GlassyProduct productspackable[] = setArrayFromList();
 
-		VDTestClass2 vdTestClass2 = new VDTestClass2(productspackable);
-		needfulCardboard = vdTestClass2.getNumberOfBoxes();
-		needfulCardboardCost = vdTestClass2.getCardboardPrice();
-		needfulAirplus = vdTestClass2.getNumberOfAirplus();
-		needfulAirplusCost = needfulAirplus * 250;
-		needfulMatrixSheet = vdTestClass2.getMatrixs();
-		needfulMatrixCost = vdTestClass2.getMatrixCost();
+		DefinitiveCalculator calculator = new DefinitiveCalculator(productspackable, basicDates);
+		setNeedfulBoxes(calculator.getBoxes());
+		needfulCardboards = calculator.getNumberOfBoxes();
+		cardboardsTotalCost = calculator.getCardboardPrice();
+		needfulAirplus = calculator.getNumberOfAirplus();
+		airplusTotalCost = needfulAirplus * basicDates.getBubbleWrap()
+				.getPrice();
+		needfulMatrixSheets = calculator.getMatrixs();
+		matrixSheetsTotalCost = calculator.getMatrixCost();
 
-		sumCostWithDiscont = (needfulCardboardCost + needfulAirplusCost + needfulMatrixCost) * (100 - order.getDiscount()) / 100;
+		discount = order.getDiscount();
+		sumCostWithDiscont = (cardboardsTotalCost + airplusTotalCost + matrixSheetsTotalCost) * (100 - order.getDiscount()) / 100;
+	}
+
+	public BasicDates getBasicDates() {
+		return basicDates;
+	}
+
+	public ArrayList<GlassyProduct> getProductsFitInBox() {
+		return productsFitInBox;
+	}
+
+	public ArrayList<GlassyProduct> getProductsNotPackable() {
+		return productsNotPackable;
+	}
+
+	public ArrayList<Box> getNeedfulBoxes() {
+		return needfulBoxes;
+	}
+
+	public int getNeedfulCardboards() {
+		return needfulCardboards;
+	}
+
+	public int getCardboardsTotalCost() {
+		return cardboardsTotalCost;
+	}
+
+	public int getNeedfulAirplus() {
+		return needfulAirplus;
+	}
+
+	public int getAirplusTotalCost() {
+		return airplusTotalCost;
+	}
+
+	public MatrixSheet[] getNeedfulMatrixSheets() {
+		return needfulMatrixSheets;
+	}
+
+	public int getMatrixSheetsTotalCost() {
+		return matrixSheetsTotalCost;
+	}
+
+	public int getDiscount() {
+		return discount;
+	}
+
+	public int getSumCostWithDiscont() {
+		return sumCostWithDiscont;
+	}
+
+	private void setNeedfulBoxes(Box[] boxes) {
+		for (int i = 0; i < boxes.length; i++) {
+			if (boxes[i].getNumberOfNeccesaryBoxes() > 0) {
+				needfulBoxes.add(boxes[i]);
+			}
+		}
 	}
 
 	private GlassyProduct[] setArrayFromList() {
@@ -53,18 +116,10 @@ public class Results {
 		return length;
 	}
 
-	public ArrayList<GlassyProduct> getProductsFitInBox() {
-		return productsFitInBox;
-	}
-
 	private void setProductsFitInBox(Order order) {
 		Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck();
 		productsFitInBox = order.getSortedProductsAbleToWrap(boxesForCheck);
 
-	}
-
-	public ArrayList<GlassyProduct> getProductsNotPackable() {
-		return productsNotPackable;
 	}
 
 	private void setProductsNotPackable(Order order) {
@@ -72,39 +127,11 @@ public class Results {
 		productsNotPackable = order.getProductsDisableToPack(boxesForCheck);
 	}
 
-	public int getNeedfulCardboard() {
-		return needfulCardboard;
-	}
-
-	public int getNeedfulCardboardCost() {
-		return needfulCardboardCost;
-	}
-
-	public int getNeedfulAirplus() {
-		return needfulAirplus;
-	}
-
-	public int getNeedfulAirplusCost() {
-		return needfulAirplusCost;
-	}
-
-	public MatrixSheet[] getNeedfulMatrixSheet() {
-		return needfulMatrixSheet;
-	}
-
-	public int getNeedfulMatrixCost() {
-		return needfulMatrixCost;
-	}
-
-	public int getSumCostWithDiscont() {
-		return sumCostWithDiscont;
-	}
-
 	public void printProductsAbleToPack() {
 		if (productsFitInBox.size() > 0) {
 			System.out.println("Csomagolásra alkalmas termékek:");
 			for (GlassyProduct product : productsFitInBox) {
-				System.out.println(product);
+				System.out.println(product + " - " + product.getAmountInOrder() + " db.");
 			}
 		}
 	}
@@ -113,7 +140,7 @@ public class Results {
 		if (productsNotPackable.size() > 0) {
 			System.out.println("Csomagolásra nem alkalmas termékek:");
 			for (GlassyProduct product : productsNotPackable) {
-				System.out.println(product);
+				System.out.println(product + " - " + product.getAmountInOrder() + " db.");
 			}
 		}
 	}
