@@ -12,13 +12,16 @@ public class FileMaker {
 	public void writeOutDataToFile(String data, String path, String costumerName) {
 		PrintWriter out;
 		try {
-			out = new PrintWriter(new File(path + "/" + generateFileName(costumerName)), "UTF-8");
+			File file = new File(path + "/" + generateFileName(costumerName));
+			out = new PrintWriter(file, "UTF-8");
 			out.print(data);
 			out.close();
+			System.out.println("File-ba mentés sikeres volt: " + file.getAbsolutePath());
+			System.out.println();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Hiba: " + e);
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			System.out.println("Hiba: " + e);
 		}
 	}
 

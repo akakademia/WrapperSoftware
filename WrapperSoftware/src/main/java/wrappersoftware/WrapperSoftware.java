@@ -3,6 +3,7 @@ package wrappersoftware;
 import java.util.Scanner;
 
 import wrappersoftware.admin.Login;
+import wrappersoftware.report.ReportGenerator;
 
 public class WrapperSoftware {
 
@@ -87,8 +88,12 @@ public class WrapperSoftware {
 					System.out.println("Az új megrendelés összeállítása:");
 					System.out.println();
 				} else {
+					String costumerName = new GetInputFromUser(scanner).getStringInputFromUser("Kérem adja meg a vásárló nevét: ");
+										
 					System.out.println("Fájlba mentés....");
 					System.out.println();
+					
+					new ReportGenerator(results, costumerName).generateReport(); 
 				}
 			}
 		}
