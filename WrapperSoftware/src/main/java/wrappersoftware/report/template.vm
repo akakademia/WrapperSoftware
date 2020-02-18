@@ -16,7 +16,7 @@
 </div>
 <div id="content">
 
-<p>$content_of_order</p>
+<p>$products_title</p>
 <table>
 <tr>
 #foreach($item in $products_header)
@@ -50,34 +50,59 @@
 </table>
 #end
 
-<p>$table_name2</p>
+<p>$title_for_packaging</p>
+
+<p>$box_title</p>
 <table>
 <tr>
-#foreach($item in $table2_header)
+#foreach($item in $box_header)
 <th>$item</th>
 #end
 </tr>
 
+#foreach($row in $box)
 <tr>
-#foreach($item in $table2_content)
+#foreach($item in $row)
 <td>$item</td>
 #end
 </tr>
+#end
 </table>
 
-<p>$table_name3</p>
+<p>$wrapper_title</p>
+
+<p>$matrix_sheets_title</p>
 <table>
 <tr>
-#foreach($item in $table3_header)
+#foreach($item in $matrix_sheets_header)
 <th>$item</th>
 #end
 </tr>
 
+#foreach($row in $matrix_sheets)
 <tr>
-#foreach($item in $table3_content)
+#foreach($item in $row)
 <td>$item</td>
 #end
 </tr>
+#end
+</table>
+
+<p>$calculation_title</p>
+<table>
+<tr>
+#foreach($item in $calculation_header)
+<th>$item</th>
+#end
+</tr>
+
+#foreach($row in $calculation)
+<tr>
+#foreach($item in $row)
+<td>$item</td>
+#end
+</tr>
+#end
 </table>
 
 </div>
