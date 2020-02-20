@@ -93,49 +93,42 @@ public class MatrixSheet {
 		return builder.toString();
 	}
 	
-	
-	
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + lengthOfOneMatrix;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + pieceInSheet;
-		result = prime * result + price;
-		result = prime * result + widthOfOneMatrix;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MatrixSheet other = (MatrixSheet) obj;
-		if (lengthOfOneMatrix != other.lengthOfOneMatrix)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (pieceInSheet != other.pieceInSheet)
-			return false;
-		if (price != other.price)
-			return false;
-		if (widthOfOneMatrix != other.widthOfOneMatrix)
-			return false;
-		return true;
-	}
-
-	public void addOneMatrix () {
-		numberOfNeccesaryMatrixes++;
-	}
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + lengthOfOneMatrix;
+//		result = prime * result + ((name == null) ? 0 : name.hashCode());
+//		result = prime * result + pieceInSheet;
+//		result = prime * result + price;
+//		result = prime * result + widthOfOneMatrix;
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		MatrixSheet other = (MatrixSheet) obj;
+//		if (lengthOfOneMatrix != other.lengthOfOneMatrix)
+//			return false;
+//		if (name == null) {
+//			if (other.name != null)
+//				return false;
+//		} else if (!name.equals(other.name))
+//			return false;
+//		if (pieceInSheet != other.pieceInSheet)
+//			return false;
+//		if (price != other.price)
+//			return false;
+//		if (widthOfOneMatrix != other.widthOfOneMatrix)
+//			return false;
+//		return true;
+//	}
 	
 	public int calculatePrice() {
 		return calculateNeccesaryMatrixSheet() * price;

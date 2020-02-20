@@ -11,11 +11,11 @@ public class Box {
 	public Box() {
 	}
 
-	public Box(int width, int length, int heigth) {
-		this.width = width;
-		this.length = length;
-		this.heigth = heigth;
-	}
+//	public Box(int width, int length, int heigth) {
+//		this.width = width;
+//		this.length = length;
+//		this.heigth = heigth;
+//	}
 
 	public Box(String name, int width, int length, int heigth) {
 		this.name = name;

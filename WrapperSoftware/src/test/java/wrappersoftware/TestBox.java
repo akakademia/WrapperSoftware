@@ -23,7 +23,7 @@ class TestBox {
 	@BeforeEach
 	public void init() {
 		box1 = new Box();
-		box2 = new Box(100, 100, 100);
+		box2 = new Box("doboz", 100, 100, 100);
 	}
 
 	@Test

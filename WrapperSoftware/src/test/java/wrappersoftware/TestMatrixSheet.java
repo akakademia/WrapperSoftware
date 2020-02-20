@@ -46,4 +46,14 @@ class TestMatrixSheet {
 	      validator.validate(pojoclass);
 	}
 	//@formatter:on
+	
+	@Test
+	@DisplayName("calculatePrice() tesztelése")
+	public void testcalculatePrice() {
+		matrixSheet.setNumberOfNeccesaryMatrixes(1);
+		matrixSheet.setPrice(50);
+		assertTrue(matrixSheet.calculatePrice() == 50, "1 * 50 = 50");
+	}
+	
+	
 }

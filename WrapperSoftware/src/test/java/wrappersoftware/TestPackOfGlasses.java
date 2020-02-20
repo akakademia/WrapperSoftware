@@ -24,7 +24,6 @@ class TestPackOfGlasses {
 	       packOfGlasses = new PackOfGlasses(1, 1, 1, 1);
 	    }
 	    
-	       
 	    //@formatter:off
 	    @Test
 	    @DisplayName("getter és setter tesztelése")
@@ -40,4 +39,21 @@ class TestPackOfGlasses {
 	        validator.validate(pojoclass);
 	    }
 	    //@formatter:on
+	    
+	    @Test
+		@DisplayName("toString tesztelése")
+		public void testToString() {
+	    
+			assertTrue(packOfGlasses.toString().contains("1"));
+		}
+	    
+	    @Test
+	    @DisplayName("toEmptyPackOfGlasses() tesztelése ")
+	    public void testToEmptyPackOfGlasses() {
+	    	packOfGlasses.toEmptyPackOfGlasses();
+	    	assertEquals(0, packOfGlasses.getWidth(),"szélesség kinullázva");
+	    	assertEquals(0, packOfGlasses.getHeigth(),"magasság kinullázva");
+	    	assertEquals(0, packOfGlasses.getLength(),"hosszúság kinullázva");
+	    	assertEquals(0, packOfGlasses.getWeight(),"súly kinullázva");
+	    }
 }
