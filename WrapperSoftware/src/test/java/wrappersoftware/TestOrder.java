@@ -18,15 +18,14 @@ import com.openpojo.validation.test.impl.SetterTester;
 class TestOrder {
 
 	Order order;
-	
+
 	@BeforeEach
 	public void init() {
 		order = new Order();
 	}
-	
-	
-	//System.out/void method tesztelése...ennek még utánna kell néznem!
-	
+
+	// System.out/void method tesztelése...ennek még utánna kell néznem!
+
 	//@formatter:off
     @Test
     @DisplayName("getter és setter tesztelése")
@@ -42,12 +41,19 @@ class TestOrder {
         validator.validate(pojoclass);
     }
     //@formatter:on
-    
-    @Test
+
+	@Test
 	@DisplayName("toString tesztelése")
 	public void testToString() {
-    
+
 		assertTrue(order.toString().contains("Megrendelés tartalma: "));
+
+		if (order.getProducts().isEmpty()) {
+			assertTrue(order.toString().contains("üres."));
+		} else {
+			//ez még hibás!!!!
+			assertTrue(order.toString().contains("db."));
+		}
 	}
 
 }

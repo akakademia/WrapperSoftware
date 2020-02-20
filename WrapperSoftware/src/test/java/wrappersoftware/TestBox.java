@@ -34,7 +34,18 @@ class TestBox {
 				.with(new SetterTester()).with(new GetterTester()).build();
 		validator.validate(pojoclass);
 	}
-	//van itt 2 db nem tesztelt metódus...kell-e tesztelni az kérdéses.
-	
-	
+
+	@Test
+	@DisplayName("addOneBox() tesztelése")
+	public void testAddOneBox() {
+		box1.addOneBox();
+		assertTrue(box1.getNumberOfNeccesaryBoxes() == 1, "+1 db 0 +1 = 1?");
+	}
+
+	@Test
+	@DisplayName("toString tesztelése")
+	public void testToString() {
+		assertTrue(box1.toString().contains("szélessége"));
+	}
+
 }

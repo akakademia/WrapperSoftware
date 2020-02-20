@@ -59,18 +59,18 @@ public class Box {
 	public int getNumberOfNeccesaryBoxes() {
 		return numberOfNeccesaryBoxes;
 	}
-
+// ezt is jó lenne kivenni, de exlude-olni kellene az open pojoból!
 	public void setNumberOfNeccesaryBoxes(int numberOfNeccesaryBoxes) {
 		this.numberOfNeccesaryBoxes = numberOfNeccesaryBoxes;
 	}
 
-	public int calculateWidthOfThePaperFromBoxSize() {
-		return 2 * (width + length) + 50; // 50mm to the edge for glue
-	}
+//	public int calculateWidthOfThePaperFromBoxSize() {
+//		return 2 * (width + length) + 50; // 50mm to the edge for glue
+//	}
 
-	public int calculateLengthOfThePaperFromBoxSize() {
-		return length + heigth;
-	}
+//	public int calculateLengthOfThePaperFromBoxSize() {
+//		return length + heigth;
+//	}
 
 	@Override
 	public String toString() {
@@ -96,6 +96,6 @@ public class Box {
 	}
 
 	public void addOneBox() {
-		numberOfNeccesaryBoxes++;
+		this.numberOfNeccesaryBoxes++;
 	}
 }
