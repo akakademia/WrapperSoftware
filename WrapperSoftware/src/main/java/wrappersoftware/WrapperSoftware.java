@@ -73,7 +73,7 @@ public class WrapperSoftware {
 			System.out.println("A csomagolás teljes költsége: " + results.getSumCostWithDiscont() + " Ft, " + order.getDiscount() + " %-os kedvezménnyel");
 			System.out.println();
 
-			new ReportGenerator(results, "teszt1").generateReport();
+			//new ReportGenerator(results, "teszt1").generateReport();
 
 			menuPoint = -1;
 			while (menuPoint != 1) {
