@@ -116,7 +116,7 @@ public class ReportGenerator {
 
         for (int i = 0; i < calculationResult.getNeedfulMatrixSheets().length; i++) {
             result[i][0] = calculationResult.getNeedfulMatrixSheets()[i].getName();
-            result[i][1] = calculationResult.getNeedfulMatrixSheets()[i].getNumberOfNeccesaryMatrixes() + " db";
+            result[i][1] = calculationResult.getNeedfulMatrixSheets()[i].calculateNeccesaryMatrixSheet() + " db";
         }
 
         return result;
