@@ -34,7 +34,14 @@ public class FileMaker {
 	}
 
 	public String generateFileName(String costumerName) {
-
-		return generateDateAndTime() + "_" + costumerName.substring(0, 4) + ".html";
+		String name= "";
+            
+                if (costumerName.length() < 4){
+                    name = costumerName;
+                }else{
+                    name = costumerName.substring(0, 4);
+                }
+            
+		return generateDateAndTime() + "_" + name + ".html";
 	}
 }
