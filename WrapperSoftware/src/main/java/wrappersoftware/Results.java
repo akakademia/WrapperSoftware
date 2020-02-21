@@ -32,7 +32,7 @@ public class Results {
 		airplusTotalCost = needfulAirplus * basicDates.getBubbleWrap()
 				.getPrice();
 		needfulMatrixSheets = calculator.getMatrixs();
-		matrixSheetsTotalCost = calculator.getMatrixCost();
+		matrixSheetsTotalCost = calculator.getMatrixSheetCost();
 
 		discount = order.getDiscount();
 		sumCostWithDiscont = (cardboardsTotalCost + airplusTotalCost + matrixSheetsTotalCost) * (100 - order.getDiscount()) / 100;

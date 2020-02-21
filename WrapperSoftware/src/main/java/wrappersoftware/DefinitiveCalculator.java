@@ -82,7 +82,7 @@ public class DefinitiveCalculator {
 		return cardboardPrice;
 	}
 
-	public int getMatrixCost() {
+	public int getMatrixSheetCost() {
 		return matrixSheetCost;
 	}
 

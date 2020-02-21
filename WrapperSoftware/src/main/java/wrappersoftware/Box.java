@@ -11,12 +11,6 @@ public class Box {
 	public Box() {
 	}
 
-//	public Box(int width, int length, int heigth) {
-//		this.width = width;
-//		this.length = length;
-//		this.heigth = heigth;
-//	}
-
 	public Box(String name, int width, int length, int heigth) {
 		this.name = name;
 		this.width = width;
@@ -63,14 +57,6 @@ public class Box {
 	public void setNumberOfNeccesaryBoxes(int numberOfNeccesaryBoxes) {
 		this.numberOfNeccesaryBoxes = numberOfNeccesaryBoxes;
 	}
-
-//	public int calculateWidthOfThePaperFromBoxSize() {
-//		return 2 * (width + length) + 50; // 50mm to the edge for glue
-//	}
-
-//	public int calculateLengthOfThePaperFromBoxSize() {
-//		return length + heigth;
-//	}
 
 	@Override
 	public String toString() {

@@ -2,10 +2,10 @@ package wrappersoftware;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import com.openpojo.reflection.PojoClass;
 import com.openpojo.reflection.impl.PojoClassFactory;
 import com.openpojo.validation.Validator;
@@ -43,16 +43,31 @@ class TestOrder {
     //@formatter:on
 
 	@Test
-	@DisplayName("toString tesztelése")
-	public void testToString() {
-
+	@DisplayName("toString tesztelése - üres lista")
+	public void testToStringWithEmptyList() {
 		assertTrue(order.toString().contains("Megrendelés tartalma: "));
 
 		if (order.getProducts().isEmpty()) {
 			assertTrue(order.toString().contains("üres."));
-		} else {
-			//ez még hibás!!!!
-			assertTrue(order.toString().contains("db."));
+		}
+	}
+
+	@Test
+	@DisplayName("toString tesztelése - nem üres lista")
+	public void testToStringWithNotEmptyList() {
+		GlassyProduct product = new GlassyProduct("termék", 100, 100, 100, 100, 100);
+		ArrayList<GlassyProduct> products = new ArrayList<GlassyProduct>();
+		products.add(product);
+		order.setProducts(products);
+		assertTrue(order.toString().contains("Megrendelés tartalma: "));
+
+		if (!order.getProducts().isEmpty()) {
+			for (int i = 0; i < order.getProducts().size(); i++) {
+
+				if (order.getProducts().get(i) != null) {
+					assertTrue(order.toString().contains("db."));
+				}
+			}
 		}
 	}
 
