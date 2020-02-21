@@ -1,7 +1,7 @@
 package wrappersoftware;
 
 public class DefinitiveCalculator {
-	
+
 	private BasicDates basicDates;
 	private Box[] boxes;
 	private int numberOfBoxes;
@@ -11,10 +11,10 @@ public class DefinitiveCalculator {
 	private int cardboardPrice;
 
 	public DefinitiveCalculator(GlassyProduct[] order, BasicDates basicDates) {
-		this.basicDates=basicDates;
+		this.basicDates = basicDates;
 		PackWrappingCalculator packWrappingCalculator = new PackWrappingCalculator();
-		boxes=packWrappingCalculator.getAllPossibleBoxes();
-		matrixs=basicDates.getMatrixSheets();
+		boxes = packWrappingCalculator.getAllPossibleBoxes();
+		matrixs = basicDates.getMatrixSheets();
 		Box plannedBox = new Box();
 		PackOfGlasses firstPack = new PackOfGlasses();
 		PackOfGlasses secondPack;
@@ -24,7 +24,11 @@ public class DefinitiveCalculator {
 		do {
 			secondPack = new PackOfGlasses(order[index].getWidth(), order[index].getWidth(), order[index].getHeight(), order[index].getWeight());
 			firstPack = packWrappingCalculator.createANewPackWithNewProduct(firstPack, secondPack);
-			Box boxToPack = packWrappingCalculator.toChooseBoxToThePack(firstPack);
+			int pressedWrapThickness = basicDates.getBubbleWrap()
+					.getThickness()
+					- basicDates.getBubbleWrap()
+							.getRetraction();
+			Box boxToPack = packWrappingCalculator.toChooseBoxToThePack(firstPack, pressedWrapThickness);
 			if (!boxToPack.equals(boxes[3])) {
 				if (boxToPack.equals(boxes[0])) {
 					plannedBox = boxes[0];
@@ -54,8 +58,8 @@ public class DefinitiveCalculator {
 
 		matrixs[1].setNumberOfNeccesaryMatrixes(boxes[2].getNumberOfNeccesaryBoxes());
 		matrixs[2].setNumberOfNeccesaryMatrixes(boxes[0].getNumberOfNeccesaryBoxes() + boxes[1].getNumberOfNeccesaryBoxes());
-	
-		matrixSheetCost=matrixs[1].calculatePrice()+matrixs[2].calculatePrice();
+
+		matrixSheetCost = matrixs[1].calculatePrice() + matrixs[2].calculatePrice();
 	}
 
 	public Box[] getBoxes() {
@@ -85,7 +89,5 @@ public class DefinitiveCalculator {
 	public BasicDates getBasicDates() {
 		return basicDates;
 	}
-	
-	
 
 }

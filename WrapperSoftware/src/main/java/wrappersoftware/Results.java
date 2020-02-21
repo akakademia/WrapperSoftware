@@ -117,13 +117,21 @@ public class Results {
 	}
 
 	private void setProductsFitInBox(Order order) {
-		Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck();
+		int pressedWrapThickness = basicDates.getBubbleWrap()
+				.getThickness()
+				- basicDates.getBubbleWrap()
+						.getRetraction();
+		Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck(pressedWrapThickness);
 		productsFitInBox = order.getSortedProductsAbleToWrap(boxesForCheck);
 
 	}
 
 	private void setProductsNotPackable(Order order) {
-		Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck();
+		int pressedWrapThickness = basicDates.getBubbleWrap()
+				.getThickness()
+				- basicDates.getBubbleWrap()
+						.getRetraction();
+		Box[] boxesForCheck = new PackWrappingCalculator().getBoxesForCheck(pressedWrapThickness);
 		productsNotPackable = order.getProductsDisableToPack(boxesForCheck);
 	}
 

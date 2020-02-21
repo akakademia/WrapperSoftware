@@ -20,12 +20,12 @@ public class PackWrappingCalculator {
 		}
 	}
 
-	public Box toChooseBoxToThePack(PackOfGlasses packOfGlasses) {
-		if (isPackFitsInTheBox(box3, packOfGlasses)) {
+	public Box toChooseBoxToThePack(PackOfGlasses packOfGlasses,int pressedWrapThickness) {
+		if (isPackFitsInTheBox(box3, packOfGlasses, pressedWrapThickness)) {
 			return box3;
-		} else if (isPackFitsInTheBox(box2, packOfGlasses)) {
+		} else if (isPackFitsInTheBox(box2, packOfGlasses, pressedWrapThickness)) {
 			return box2;
-		} else if (isPackFitsInTheBox(box1, packOfGlasses)) {
+		} else if (isPackFitsInTheBox(box1, packOfGlasses, pressedWrapThickness)) {
 			return box1;
 		} else {
 			return box4;
@@ -41,13 +41,15 @@ public class PackWrappingCalculator {
 		return newPackOfGlasses;
 	}
 
-	private boolean isPackFitsInTheBox(Box box, PackOfGlasses packOfGlasses) {
-		return (packOfGlasses.getWidth() <= box.getWidth() && packOfGlasses.getLength() <= box.getLength() && (packOfGlasses.getHeigth() + 80) <= box.getHeigth()); // 80mm to the airplus
+	private boolean isPackFitsInTheBox(Box box, PackOfGlasses packOfGlasses, int pressedWrapThickness) {
+		return (packOfGlasses.getWidth() <= box.getWidth() && packOfGlasses.getLength() <= box.getLength() 
+				&& (packOfGlasses.getHeigth() + pressedWrapThickness) <= box.getHeigth()); 
+
 	}
 
-	public Box[] getBoxesForCheck() {
+	public Box[] getBoxesForCheck(int pressedWrapThickness) {
 		Box[] biggestBoxes = { box1 };
-		biggestBoxes[0].setHeigth(box1.getHeigth() - 80); // '-80' is wrap thickness in pressed state
+		biggestBoxes[0].setHeigth(box1.getHeigth() - pressedWrapThickness); 
 		return biggestBoxes;
 	}
 

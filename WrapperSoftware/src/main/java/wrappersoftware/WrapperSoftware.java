@@ -60,18 +60,20 @@ public class WrapperSoftware {
 			System.out.println("Térkitöltő: " + results.getNeedfulAirplus() + " db");
 			System.out.println();
 			for (int i = 0; i < results.getNeedfulMatrixSheets().length; i++) {
-				System.out.println(results.getNeedfulMatrixSheets()[i].getName() + " matricából szükséges (ív): " + results.getNeedfulMatrixSheets()[i].calculateNeccesaryMatrixSheet()+" db");
+				System.out.println(results.getNeedfulMatrixSheets()[i].getName() + " matricából szükséges (ív): " + results.getNeedfulMatrixSheets()[i].calculateNeccesaryMatrixSheet() + " db");
 			}
 			System.out.println();
 			System.out.println("Ár-kalkuláció:");
 			System.out.println();
-			System.out.println("A dobozokhoz szükséges kartonok ára összesen: " + results.getCardboardsTotalCost()+" Ft.");
+			System.out.println("A dobozokhoz szükséges kartonok ára összesen: " + results.getCardboardsTotalCost() + " Ft.");
 			for (int i = 0; i < results.getNeedfulMatrixSheets().length; i++) {
 				System.out.println(results.getNeedfulMatrixSheets()[i].getName() + " matricák - ívek ára összesen: " + results.getNeedfulMatrixSheets()[i].calculatePrice() + " Ft.");
 			}
 			System.out.println("Térkitöltő ára: " + results.getAirplusTotalCost() + " Ft.");
 			System.out.println("A csomagolás teljes költsége: " + results.getSumCostWithDiscont() + " Ft, " + order.getDiscount() + " %-os kedvezménnyel");
 			System.out.println();
+
+			new ReportGenerator(results, "teszt1").generateReport();
 
 			menuPoint = -1;
 			while (menuPoint != 1) {
@@ -89,11 +91,11 @@ public class WrapperSoftware {
 					System.out.println();
 				} else {
 					String costumerName = new GetInputFromUser(scanner).getStringInputFromUser("Kérem adja meg a vásárló nevét: ");
-										
+
 					System.out.println("Fájlba mentés....");
 					System.out.println();
-					
-					new ReportGenerator(results, costumerName).generateReport(); 
+
+					new ReportGenerator(results, costumerName).generateReport();
 				}
 			}
 		}
